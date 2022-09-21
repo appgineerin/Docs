@@ -37,15 +37,15 @@ const config = {
           items: [
             {
               label: 'Appgineering TV-Overlay for iRacing',
-              href: '#',
-            },
-            {
-              label: 'Theme Editor',
-              href: '#',
+              href: '/atvo/appgineering-tv-overlay-for-iracing/intro',
             },
             {
               label: 'ATVO Theme 2022',
               href: '/atvo/atvo-theme-2022/intro',
+            },
+            {
+              label: 'Theme Editor',
+              href: '/atvo/theme-editor/intro',
             },
           ],
         },
