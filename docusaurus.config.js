@@ -1,132 +1,147 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+const content = require('./content/docusaurus.config');
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'Appgineering Docs',
+  tagline: 'The documentation source to Appgineering software',
+  url: 'https://docs.appgineering.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  trailingSlash: false,
+  organizationName: 'appgineering', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'de'],
   },
-
+  themeConfig: {
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    navbar: {
+      title: 'Docs',
+      logo: {
+        alt: 'Appgineering Logo',
+        src: 'img/logo.svg',
+      },
+      items: [
+        {
+          label: 'ATVO',
+          to: '/#atvo',
+          type: 'dropdown',
+          items: [
+            {
+              label: 'Appgineering TV-Overlay for iRacing',
+              href: '#',
+            },
+            {
+              label: 'Theme Editor',
+              href: '#',
+            },
+            {
+              label: 'ATVO Theme 2022',
+              href: '/atvo/atvo-theme-2022/intro',
+            },
+          ],
+        },
+        {
+          href: 'https://gitlab.com/appgineering/websites/docs',
+          label: 'GitLab',
+          position: 'right',
+        },
+        {
+          href: 'https://appgineering.com',
+          label: 'Get Started',
+          position: 'right',
+        }
+      ],
+    },
+    footer: {
+      links: [
+        {
+          title: 'About Appgineering',
+          items: [
+            {
+              label: 'Tutorial',
+              to: '#',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discordapp.com/invite/docusaurus',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/docusaurus',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Blog',
+              to: '#',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/facebook/docusaurus',
+            },
+          ],
+        },
+      ],
+      copyright: `© ${new Date().getFullYear()} Appgineering GbR. Built with Docusaurus.`,
+    },
+    socials: [
+      {
+        url: 'https://twitter.com/appgineering',
+      },
+    ],
+    colorMode: {
+      defaultMode: 'dark',
+    },
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+  },
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        docs: false,
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
         },
       }),
     ],
   ],
-
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'My Site',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+  plugins: [
+    ...content.plugins,
+  ],
+  staticDirectories: [
+    './static',
+    ...content.staticDirectories,
+  ],
 };
 
 module.exports = config;

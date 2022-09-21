@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "require-glob": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=16.14"
+  }
+}
