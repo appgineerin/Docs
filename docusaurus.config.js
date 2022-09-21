@@ -23,6 +23,12 @@ const config = {
   },
   themeConfig: {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    algolia: {
+      appId: '1F63SYH1EI',
+      apiKey: '35351903852f37f4385222e20ef30945',
+      indexName: 'docs',
+      contextualSearch: true,
+    },
     navbar: {
       title: 'Docs',
       logo: {
