@@ -28,6 +28,7 @@ const config = {
       logo: {
         alt: 'Appgineering Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dark.svg',
       },
       items: [
         {
