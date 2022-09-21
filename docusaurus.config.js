@@ -19,7 +19,7 @@ const config = {
   projectName: 'docs', // Usually your repo name.
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'de'],
+    locales: ['en'],
   },
   themeConfig: {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -51,14 +51,9 @@ const config = {
         },
         {
           href: 'https://gitlab.com/appgineering/websites/docs',
-          label: 'GitLab',
+          className: 'header-github-link',
           position: 'right',
         },
-        {
-          href: 'https://appgineering.com',
-          label: 'Get Started',
-          position: 'right',
-        }
       ],
     },
     footer: {
