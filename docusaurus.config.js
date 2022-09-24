@@ -33,8 +33,8 @@ const config = {
       title: 'Docs',
       logo: {
         alt: 'Appgineering Logo',
-        src: 'img/logo.svg',
-        srcDark: 'img/logo-dark.svg',
+        src: 'img/logos/appgineering.svg',
+        srcDark: 'img/logos/appgineering-dark.svg',
       },
       items: [
         {

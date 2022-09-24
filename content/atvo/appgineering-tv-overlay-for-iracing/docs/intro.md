@@ -4,10 +4,10 @@ sidebar_position: 1
 
 # What is ATVO?
 
-![IOTA Introduction](/img/ATVO/ATVO_Logo.png)
+![ATVO Introduction](/img/logos/atvo.png)
 
 ATVO is the premier solution for iRacing broadcasters. 
-It allows you to control your overlay graphics during a broadcast and provides a variety of useful information to create the best and most immersive iRacing broadcasts you have ever produced.<br />
+It allows you to control your overlay graphics during a broadcast and provides a variety of useful information to create the best and most immersive iRacing broadcasts you have ever produced.  
 ATVO is used by many broadcasters such us iRacing, RaceSpot, SimSpeed, WSeries and many more!
 
 ## Getting Started
@@ -30,7 +30,7 @@ The _ATVO Launcher_ will take care of downloading the latest release of ATVO.
 
 ## First start
 
-When you start the ATVO Launcher for the first time it will prompt you to download the latest version of ATVO. Please wait for the launcher to finish the download. Otherwise ATVO won't start.<br/>
+When you start the ATVO Launcher for the first time it will prompt you to download the latest version of ATVO. Please wait for the launcher to finish the download. Otherwise ATVO won't start.  
 By default the launcher will download the latest **stable** version of ATVO.
 
 **Note:** The launcher will automatically inform you if there is a new release available. Once the launcher detects a new release you can choose to download the new release or skip this version.

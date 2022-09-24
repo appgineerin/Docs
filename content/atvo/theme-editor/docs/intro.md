@@ -2,46 +2,32 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# What is the Theme Editor?
 
-Let's discover **Docusaurus in less than 5 minutes**.
+The Theme Editor is a part of ATVO, the premier solution for iRacing broadcasters.
+It allows you to create your own themes for ATVO from scratch by using our powerful user interface for creating widgets, scenes and much more.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Head over to the download page of the **[ATVO website](https://atvo.appgineering.com/Download)** and download the _ATVO Launcher_.
+The _ATVO Launcher_ will take care of downloading the latest release of the Theme Editor.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### System requirements
 
-### What you'll need
+1. Active iRacing subscription
+2. A computer capable running iRacing (and display all cars on the track!)
+3. Microsoft Windows 7/8/8.1/10
+4. Microsoft .NET Framework 4.5
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Installation
 
-## Generate a new site
+1. **[Download the ATVO Launcher](https://atvo.appgineering.com/Download)**
+2. Start the setup routine by double-clicking the "ATVO Launcher.MSI"
+3. Follow the instructions of the setup wizard
 
-Generate a new Docusaurus site using the **classic template**.
+## First start
 
-The classic template will automatically be added to your project after you run the command:
+When you start the ATVO Launcher for the first time it will prompt you to download the latest version of the Theme Editor. Please wait for the launcher to finish the download. Otherwise the Theme Editor won't start.  
+By default the launcher will download the latest **stable** version of ATVO.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+**Note:** The launcher will automatically inform you if there is a new release available. Once the launcher detects a new release you can choose to download the new release or skip this version.
