@@ -13,8 +13,8 @@ module.exports = {
         sidebarPath: path.resolve(__dirname, 'sidebars.js'),
         editUrl: `https://gitlab.com/appgineering/websites/docs/-/tree/master/content/atvo/${name}`,
         remarkPlugins: [
-          require('remark-code-import'),
-          require('remark-import-partial'),
+          import('remark-code-import'),
+          import('remark-import-partial'),
         ],
       },
     ],
