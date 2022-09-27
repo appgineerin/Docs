@@ -39,7 +39,7 @@ const config = {
       items: [
         {
           label: 'ATVO',
-          to: '/#atvo',
+          to: '#',
           type: 'dropdown',
           items: [
             {
