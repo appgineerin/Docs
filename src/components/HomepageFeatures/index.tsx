@@ -6,49 +6,54 @@ type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
+  url: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'ATVO',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        ATVO is the premier solution for iRacing broadcasters. It allows you to control your overlay graphics during
+        a broadcast and provides a variety of useful information to create the best and most immersive iRacing
+        broadcasts you have ever produced.
+        <br/>
+        ATVO is used by many broadcasters such us iRacing, RaceSpot, SimSpeed, WSeries and many more!
       </>
     ),
+    url: '/atvo/appgineering-tv-overlay-for-iracing/intro',
   },
   {
-    title: 'Focus on What Matters',
+    title: 'ATVO Theme 2022',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        ATVO Theme 2022 description
       </>
     ),
+    url: '/atvo/atvo-theme-2022/intro',
   },
   {
-    title: 'Powered by React',
+    title: 'Theme Editor',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        ATVO Theme Editor description
       </>
     ),
+    url: '/atvo/theme-editor/intro',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, description, url}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+        <a href={url}><h3>{title}</h3></a>
         <p>{description}</p>
       </div>
     </div>

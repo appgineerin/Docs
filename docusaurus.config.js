@@ -66,28 +66,44 @@ const config = {
     footer: {
       links: [
         {
-          title: 'About Appgineering',
+          title: 'About',
           items: [
             {
-              label: 'Tutorial',
-              to: '#',
+              label: 'Appgineering GbR',
+              to: 'https://appgineering.com',
+            },
+            {
+              label: 'Appgineering Shop',
+              to: 'https://shop.appgineering.com',
+            },
+            {
+              label: 'ATVO Themes',
+              to: 'https://shop.appgineering.com/product-category/atvo-themes/',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Socials',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Facebook',
+              to: 'https://www.facebook.com/appgineeringcom',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              to: 'https://twitter.com/appgineerin',
+            },
+            {
+              label: 'Instagram',
+              to: 'https://www.instagram.com/appgineering',
+            },
+            {
+              label: 'YouTube',
+              to: 'https://www.youtube.com/channel/UCHeQCMC6yE5ceB1TzyGHj4Q',
+            },
+            {
+              label: 'Discord',
+              to: 'https://discord.appgineering.com',
             },
           ],
         },
@@ -95,16 +111,22 @@ const config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '#',
+              label: 'Imprint',
+              to: 'https://appgineering.com/impressum',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              to: 'https://github.com/appgineerin',
             },
           ],
         },
       ],
+      logo: {
+        alt: 'Meta Open Source Logo',
+        src: 'img/logos/appgineering.svg',
+        srcDark: 'img/logos/appgineering-dark.svg',
+        href: 'https://appgineering.com',
+      },
       copyright: `© ${new Date().getFullYear()} Appgineering GbR. Built with Docusaurus.`,
     },
     socials: [
