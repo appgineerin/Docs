@@ -45,15 +45,18 @@ resource "aws_s3_bucket_logging" "docs" {
   target_prefix = "docs/"
 }
 
-locals {
-  build_files = "../build/"
+module "build_files" {
+  source = "hashicorp/dir/template"
+  base_dir = "../build"
 }
 
 resource "aws_s3_bucket_object" "files" {
-  for_each = fileset(local.build_files, "**")
+  for_each = module.build_files.files
 
   bucket = aws_s3_bucket.docs.bucket
-  key = each.value
-  source = "${local.build_files}${each.value}"
-  etag = filemd5("${local.build_files}${each.value}")
+  key = each.key
+  source = each.value.source_path
+  content = each.value.content
+  content_type = each.value.content_type
+  etag = each.value.digests.md5
 }
