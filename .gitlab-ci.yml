@@ -1,0 +1,75 @@
+variables:
+  TF_ROOT: terraform
+
+stages:
+  - docs
+  - init
+  - validate
+  - build
+  - deploy
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_MAIN_BRANCH
+
+.base:
+  tags:
+    - docker
+
+.tf-base:
+  extends: .base
+  image: registry.gitlab.com/gitlab-org/terraform-images/releases/terraform:1.0.0
+  cache:
+    key: "${TF_ROOT}"
+    paths:
+      - ${TF_ROOT}/.terraform/
+      - ${TF_ROOT}/.terraform.lock.hcl
+  variables:
+    TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/${CI_ENVIRONMENT_NAME}
+  before_script:
+    - cd ${TF_ROOT}
+    - export TF_VAR_ENVIRONMENT=${CI_ENVIRONMENT_NAME}
+  environment: prod
+
+docs:
+  extends: .base
+  stage: docs
+  image: node:16
+  script:
+    - npm i
+    - npx npm run build
+  artifacts:
+    paths:
+      - build
+
+init:
+  stage: init
+  extends: .tf-base
+  script:
+    - gitlab-terraform init
+
+validate:
+  stage: validate
+  extends: .tf-base
+  script:
+    - gitlab-terraform validate
+
+build:
+  stage: build
+  extends: .tf-base
+  script:
+    - gitlab-terraform plan
+    - gitlab-terraform plan-json
+  artifacts:
+    paths:
+      - "${TF_ROOT}/plan.cache"
+    reports:
+      terraform:
+        - "${TF_ROOT}/plan.json"
+    expire_in: 1 day
+
+deploy:
+  stage: deploy
+  extends: .tf-base
+  script:
+    - gitlab-terraform apply
