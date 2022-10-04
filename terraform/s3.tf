@@ -12,6 +12,10 @@ resource "aws_s3_bucket_website_configuration" "docs" {
   index_document {
     suffix = "index.html"
   }
+
+  error_document {
+    key = "404.html"
+  }
 }
 
 resource "aws_s3_bucket_policy" "docs" {
@@ -39,4 +43,17 @@ resource "aws_s3_bucket_logging" "docs" {
   bucket = aws_s3_bucket.docs.bucket
   target_bucket = data.aws_s3_bucket.logging.id
   target_prefix = "docs/"
+}
+
+locals {
+  build_files = "../build/"
+}
+
+resource "aws_s3_bucket_object" "files" {
+  for_each = fileset(local.build_files, "**")
+
+  bucket = aws_s3_bucket.docs.bucket
+  key = each.value
+  source = "${local.build_files}${each.value}"
+  etag = filemd5("${local.build_files}${each.value}")
 }
