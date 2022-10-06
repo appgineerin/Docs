@@ -11,7 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, 'docs'),
         routeBasePath: `atvo/${name}`,
         sidebarPath: path.resolve(__dirname, 'sidebars.js'),
-        editUrl: `https://github.com/appgineerin/Docs/blob/master/${name}`,
+        editUrl: `https://github.com/appgineerin/Docs/blob/master`,
         remarkPlugins: [
           import('remark-code-import'),
           import('remark-import-partial'),
