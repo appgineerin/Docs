@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
         ATVO is used by many broadcasters such us iRacing, RaceSpot, SimSpeed, WSeries and many more!
       </>
     ),
-    url: '/atvo/appgineering-tv-overlay-for-iracing/intro',
+    url: '/atvo/appgineering-tv-overlay-for-iracing/intro/',
   },
   {
     title: 'ATVO Theme 2022',
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
         ATVO Theme 2022 description
       </>
     ),
-    url: '/atvo/atvo-theme-2022/intro',
+    url: '/atvo/atvo-theme-2022/intro/',
   },
   {
     title: 'Theme Editor',
@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
         ATVO Theme Editor description
       </>
     ),
-    url: '/atvo/theme-editor/intro',
+    url: '/atvo/theme-editor/intro/',
   },
 ];
 

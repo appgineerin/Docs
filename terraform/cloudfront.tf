@@ -53,6 +53,14 @@ resource "aws_cloudfront_distribution" "docs" {
     target_origin_id = "docs"
     viewer_protocol_policy = "redirect-to-https"
 
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
     function_association {
       event_type = "viewer-request"
       function_arn = aws_cloudfront_function.rewrite-default-handler.arn
