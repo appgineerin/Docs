@@ -46,3 +46,10 @@ resource "aws_cloudfront_distribution" "docs" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 }
+
+resource "aws_cloudfront_function" "rewrite-default-handler" {
+  name = "rewrite-default-handler"
+  runtime = "cloudfront-js-1.0"
+  publish = true
+  code = file("${path.module}/resources/rewrite-default-handler.js")
+}
