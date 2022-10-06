@@ -14,7 +14,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  trailingSlash: false,
+  trailingSlash: true,
   organizationName: 'appgineering', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   i18n: {
