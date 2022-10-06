@@ -45,6 +45,19 @@ resource "aws_cloudfront_distribution" "docs" {
     ssl_support_method = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
+
+  ordered_cache_behavior {
+    allowed_methods = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods = ["GET", "HEAD"]
+    path_pattern = "*"
+    target_origin_id = "docs"
+    viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type = "viewer-request"
+      function_arn = aws_cloudfront_function.rewrite-default-handler.arn
+    }
+  }
 }
 
 resource "aws_cloudfront_function" "rewrite-default-handler" {
