@@ -18,8 +18,8 @@ The _ATVO Launcher_ will take care of downloading the latest release of ATVO.
 ## System Requirements
 
 1. Active iRacing subscription
-2. A computer capable running iRacing (and display all cars on the track!)
-3. Microsoft Windows 7/8/8.1/10
+2. A computer capable of running iRacing (and display all cars on the track!)
+3. Microsoft Windows 7/8/8.1/10/11 (Note: iRacing might not officially support a version lower than 10)
 4. Microsoft .NET Framework 4.5
 
 ## Installation
