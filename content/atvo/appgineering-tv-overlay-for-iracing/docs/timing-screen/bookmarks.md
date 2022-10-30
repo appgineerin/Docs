@@ -5,6 +5,9 @@ sidebar_position: 5
 # Bookmarks
 
 The bookmarks tab lets you manage bookmarks. This includes importing and exporting bookmarks as well as using the bookmarks for a replay and deleting bookmarks.
+
+![ATVO Timing Screen Bookmarks](../../static/img/timingscreen/timing-screen-bookmarks.png)
+
 To use a bookmark for a replay simply right-click on the bookmark you want to use and choose one of the replay options. Deleting a bookmarks works the same way, simply right-click a bookmark and choose *Delete*
 
 The following right-click options exist:
@@ -23,6 +26,4 @@ The *Import* button opens a new dialog and expects the user to point to a valid 
 
 ### Export
 The *Export* button opens a new dialog to export a valid bookmark csv-file.
-
-![ATVO Timing Screen Bookmarks](../../static/img/timingscreen/timing-screen-bookmarks.png)
 
