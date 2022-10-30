@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 # Timing Screen Settings
-![ATVO Timing Screen Settings](../../static/img/settings/atvo-settings-car-number-helmet-images-settings.png)
+![ATVO Car, Number and Helmet images Settings](../../static/img/settings/atvo-settings-car-number-helmet-images-settings.png)
 
 ## iRacing generated images
 ATVO can make use of the iRacing generated images for cars, numbers and helmets. 
