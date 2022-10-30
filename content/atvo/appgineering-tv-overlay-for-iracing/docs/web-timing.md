@@ -7,7 +7,7 @@ sidebar_position: 6
 ATVO allows you to provide a web timing for your audience. A demo of the web timing (with static data) can be found here: 
 
 * [Timing Screen](https://webtimingdemo.appgineering.com/#/timingscreen)
-* [Events](https://webtimingdemo.appgineering.com/#/timingscreen)
+* [Events](https://webtimingdemo.appgineering.com/#/events)
 
 ## Setup
 
