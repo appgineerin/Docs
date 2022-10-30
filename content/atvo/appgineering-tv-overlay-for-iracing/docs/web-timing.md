@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Web Timing
 
-ATVO allows you to provide a web timing for your audience. A demo of the webtiming (with static data) can be found here: 
+ATVO allows you to provide a web timing for your audience. A demo of the web timing (with static data) can be found here: 
 
 * [Timing Screen](https://webtimingdemo.appgineering.com/#/timingscreen)
 * [Events](https://webtimingdemo.appgineering.com/#/timingscreen)
@@ -24,11 +24,11 @@ ATVO allows you to provide a web timing for your audience. A demo of the webtimi
 
 ### Setup inside of ATVO
 After clicking the web timing button in ATVO a new window will be shown.
-1. Specify the URL of the webserver you uploaded the webtiming files to.
+1. Specify the URL of the webserver you uploaded the web timing files to.
 2. Enter the password you chose for the web timing.
 3. Set a name for the event you want to broadcast and provide a web timing for.
 4. Set up the update interval for the web timing. We recommend an interval of at least 3 seconds to ensure the webserver is not being flooded by the web timing module of ATVO. Too many requests can cause the web server to fail.
 5. Connect to an iRacing session and click the *Start* button.
-6. Check the *Log* tab of the Web Timing in ATVO if there any errors show up.
+6. Check the *Log* tab of the Web Timing in ATVO if there are any errors showing up.
 
-![ATVO Timing Webtiming](../static/img/webtiming/webtiming-connection.png)
+![ATVO Web Timing](../static/img/webtiming/webtiming-connection.png)
