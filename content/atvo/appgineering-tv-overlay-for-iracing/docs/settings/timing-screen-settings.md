@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Timing Screen Settings
+# Timing Screen
 ![ATVO Timing Screen Settings](../../static/img/settings/atvo-settings-timingscreen-settings.png)
 
 ## General Timing Screen Settings
