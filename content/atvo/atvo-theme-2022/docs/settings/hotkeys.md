@@ -1,7 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 # Hotkeys
 
-// TODO
+Specify hotkeys for specific theme control interactions, such as showing, hiding or toggling widgets.
