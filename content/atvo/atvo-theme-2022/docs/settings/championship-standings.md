@@ -65,6 +65,7 @@ The Identifier can be used to choose between using the "live" positions of each 
 ### Example spreadsheet
 
 The following table shows a valid Points System spreadsheet that awards points to the *Heat 1* and *Feature* heats.
+
 | LivePosition | Session name | Points |
 |--------------|--------------|--------|
 | 1            | Heat 1       | 25     |
