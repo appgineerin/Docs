@@ -41,7 +41,7 @@ const config = {
               href: '/atvo/appgineering-tv-overlay-for-iracing/intro',
             },
             {
-              label: 'ATVO Theme 2022',
+              label: 'ATVO Theme 2023',
               href: '/atvo/atvo-theme-2023/intro',
             },
             {
