@@ -42,7 +42,7 @@ const config = {
             },
             {
               label: 'ATVO Theme 2022',
-              href: '/atvo/atvo-theme-2022/intro',
+              href: '/atvo/atvo-theme-2023/intro',
             },
             {
               label: 'Theme Editor',
