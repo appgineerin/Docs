@@ -1,9 +1,11 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # NDI Settings
 ![ATVO NDI Settings](../../static/img/settings/atvo-settings-ndi-settings.png)
+
+**NDI v1 is no longer supported and has been replaced by our NDI Recorder tool!** Please read the instructions on the `Streaming ATVO` documentation.
 
 Please read the note on NDI inside of ATVO.
 
