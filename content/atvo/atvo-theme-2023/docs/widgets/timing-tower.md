@@ -6,6 +6,8 @@ sidebar_position: 5
 
 The Timing Tower widget is a live race ticker at the left side of the screen. It is able to show multiple classes at the same time (grouped or together). You can choose how many items to show per class, and how many of them are to be 'variable'. The top N items are 'static' and always show position 1 - N, while the remaining variable items page through the rest of the positions. You can configure these numbers in the Timing Tower settings.
 
+![Tower](../../static/img/widgets/tower.png)
+
 ## Classes
 You can choose to show all classes, or a mix of multiple classes grouped.
 

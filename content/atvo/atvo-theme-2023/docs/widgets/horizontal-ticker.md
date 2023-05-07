@@ -6,6 +6,8 @@ sidebar_position: 3
 
 The Horizontal Ticker widget is a live race ticker at the top of the screen, showing 6 entries at a time and fading / paging to the next 6 entries. 
 
+![Ticker](../../static/img/widgets/horzticker.png)
+
 ## Classes
 You can choose to show all classes, or a specific class.
 
