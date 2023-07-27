@@ -50,7 +50,7 @@ When using an Xbox 360 or Xbox One controller, the ATVO application unfortunatel
 
 
 ## Streamdeck
-A Streamdeck device can be used as a Camera Controls button box as well as for custom hotkeys. To use Streamdeck, install the `Appgineering ATVO` plugin and then enable the `Use Streamdeck` setting. The plugin is included with ATVO and can be installed from the settings. Soon, the plugin will also be featured in the Streamdeck store.
+A Streamdeck device can be used as a Camera Controls button box as well as for custom hotkeys. To use Streamdeck, install the `Appgineering ATVO` plugin and then enable the `Use Streamdeck` setting. The plugin is included with ATVO and can be installed from the ATVO - Hotkey settings, next to the option to Use Streamdeck. Soon, the plugin will also be featured in the Streamdeck store.
 
 The Streamdeck plugin consists of two actions:
 * Camera Controls
