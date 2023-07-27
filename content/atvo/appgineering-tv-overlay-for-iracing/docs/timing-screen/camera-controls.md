@@ -11,6 +11,10 @@ You may have noticed the camera controls in the bottom of the timing screen. Thi
 ## Hotkeys
 Almost all of the actions available from the Camera Controls can also be performed via hotkeys. Please read the [ATVO hotkeys documentation](../../hotkeys) for more information.
 
+## Streamdeck
+Almost all of the actions available from the Camera Controls can also be performed via a Streamdeck device. Please read the [ATVO Streamdeck documentation](../../hotkeys#streamdeck) for more information.
+
+
 ## Camera actions
 
 ### Camera dropdown
