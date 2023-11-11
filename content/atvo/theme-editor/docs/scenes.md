@@ -10,4 +10,4 @@ In the scenes editor you can create your own scenes.
 
 A scene is a collection of widgets.
 
-e.g.: It can be useful to have scenes to quickly switch what you would like to show on stream instead of disabling/enabling widgets one-by-one.
+e.g.: It can be useful to have scenes to quickly switch what you would like to show on stream or in the editor, instead of disabling/enabling widgets one-by-one.
