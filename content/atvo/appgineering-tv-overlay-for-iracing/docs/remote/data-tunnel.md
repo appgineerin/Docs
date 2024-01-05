@@ -23,7 +23,8 @@ The Data Tunnel allows communication of data in both directions:
 
 
 ## Server PC
-On the Server PC, start the ATVO Data Tunnel and use the Server tab. Start iRacing and wait for the Data Tunnel to recognize the iRacing connection. Once the connection to iRacing is established, click Start to start the server on your desired port.
+On the Server PC, start the ATVO Data Tunnel and use the Server tab. **Note: the Data Tunnel application must be running as administrator!**
+Start iRacing and wait for the Data Tunnel to recognize the iRacing connection. Once the connection to iRacing is established, click Start to start the server on your desired port.
 
 **Important:** it is recommended to **close ATVO** on this computer, since it is not needed.
 
@@ -38,3 +39,14 @@ Once the Data Tunnel Server is running on your other PC, connect to the server v
 
 ### Data Source
 On the client PC that runs ATVO, you must tell ATVO to look for the Data Tunnel as the Data Source, instead of an iRacing connection.
+
+
+## Trouble shooting
+### Data Tunnel Server does not start
+Please ensure Data Tunnel is running as administrator.
+
+### Data Tunnel Client does not connect
+Please try the following:
+* Double check that the IP address matches the **local** IP address of the **server** PC.
+* If the Server was stopped and started for some reason, try closing and restarting the Data Tunnel application on the server PC. Once the server is stopped, it may refuse future connections.
+* Check your Windows Firewall settings to ensure Data Tunnel is not being blocked.
