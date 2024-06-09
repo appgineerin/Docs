@@ -4,6 +4,8 @@ sidebar_position: 10
 
 # Championship Standings
 
+**NOTE:** This page explains championships for *ATVO Theme 2023*. Championships for *Theme Editor* themes are explained [here](../../../theme-editor/championship-standings).
+
 The theme supports several methods of display live championship points and standings, such as the `Championship Standings Tower` and `Fullscreen Champ Standings` widgets.
 
 In order to calculate and display live championship standings, you have to submit results of previous races, as well as the point system that will be used to award points during the current weekend. You need to use spreadsheets (Excel or csv files) to submit these files. Make sure to read the chapter on `Dynamic Data` on how to work with dynamic spreadsheets.
