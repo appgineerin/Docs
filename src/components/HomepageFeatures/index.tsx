@@ -25,24 +25,24 @@ const FeatureList: FeatureItem[] = [
     url: '/atvo/appgineering-tv-overlay-for-iracing/intro/',
   },
   {
-    title: 'ATVO Theme 2022',
+    title: 'ATVO Theme 2023',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        ATVO Theme 2022 description
+        ATVO Theme 2023 description
       </>
     ),
-    url: '/atvo/atvo-theme-2022/intro/',
+    url: '/atvo/atvo-theme-2023/intro/',
   },
   {
-    title: 'Theme Editor',
+    title: 'Live Timing',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        ATVO Theme Editor description
+        Live Timing description
       </>
     ),
-    url: '/atvo/theme-editor/intro/',
+    url: '/live-timing/intro/',
   },
 ];
 

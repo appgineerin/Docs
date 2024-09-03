@@ -51,6 +51,10 @@ const config = {
           ],
         },
         {
+          label: 'Live Timing',
+          to: '/live-timing/intro',
+        },
+        {
           href: 'https://github.com/appgineerin/Docs',
           className: 'header-github-link',
           position: 'right',
