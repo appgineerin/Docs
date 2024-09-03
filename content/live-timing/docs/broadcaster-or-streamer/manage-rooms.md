@@ -9,4 +9,6 @@ To manage your Live Timing rooms within a profile, simply open the Live Timing w
 
 ![](/img/atvo-properties-rooms.png)
 
+Here you may create new rooms or delete existing ones. For now, rooms only have a name.
 
+You may use the dropdown `Select room` up top to select your current room.

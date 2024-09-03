@@ -24,7 +24,7 @@ your `user` you are broadcasting data as.
 ![](/img/atvo-create-first-profile.png)
 
 You need to enter a name and may provide a description and website for your profile. Hit `OK` to create your profile.
-More on profiles [here](// TODO).
+More on profiles [here](../properties-window).
 
 Once your first profile has been created, you may simply hit the `Start`-button and start broadcasting or configure
 more things. More details can be found in the following sections of these docs.
