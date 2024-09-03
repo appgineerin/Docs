@@ -11,7 +11,10 @@ There are several ways to stream the ATVO graphics to your viewers. The best sce
 The simplest method is to put the ATVO overlay physically on top of your iRacing window, then using Display Capture or similar to capture and stream both at the same time. Note that iRacing must be running in **Windowed mode** for the ATVO graphics to appear on top.
 
 ### Capture ATVO via 'browser source'
-It is not possible to capture ATVO via a browser source. Instead you have to use NDI, as described in the next section.
+It is not possible to capture ATVO via a browser source. The alternatives are `Window Capture` (OBS) and `NDI` (OBS and others).
+
+### Window Capture (OBS)
+It may be possible to capture the overlay graphics via the Window Capture mode. Select the ATVO Overlay window as the window, and make sure the `Capture Method` setting is set to: "Windows 10 (1903 and up)". If this does not capture the overlay properly, then you must use NDI instead.
 
 ### Separately capture iRacing and ATVO via NDI
 To capture ATVO separately, you need to use our `NDI Recorder` tool, which you can find through the Tools menu. NDI Recorder is able to capture the ATVO graphics and send them to OBS or other streaming software/hardware via NDI, a popular livestreaming technology. 
