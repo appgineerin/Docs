@@ -68,7 +68,7 @@ We also provide a module for the Companion app to use alongside Streamdeck. This
 ### Installing the ATVO Companion module
 The Companion module is a zip file that must be downloaded separately and extracted anywhere on your computer. Next, you must configure Companion to look for developer modules on startup so it can find the module.
 
-1. [Download the module here](https://drive.google.com/file/d/1KSJ76ELQBzJBQIc9Ik6PcHMmztUhy3i9/view?usp=sharing)
+1. [Download the module here](https://download.appgineering.com/atvo-bitfocus-companion/latest/atvo-companion-module.zip)
 2. Create a new folder somewhere on your computer and call it 'Companion modules', for example `C:/Users/Your name/Documents/Companion modules`
 3. Extract the module zip file into the new folder, for example `C:/Users/Your name/Documents/Companion modules/companion-module-atvo`
 4. Start Companion and click the 'settings' cog in the top-right corner to expand the advanced settings.
