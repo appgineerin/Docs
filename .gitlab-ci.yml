@@ -14,7 +14,7 @@ workflow:
 
 .base:
   tags:
-    - docker
+    - gitlab-org-docker
 
 .tf-base:
   extends: .base
