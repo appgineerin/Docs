@@ -9,7 +9,7 @@ Starting with version 1.48, ATVO supports configurable hotkeys to perform variou
 Hotkeys currently support the following input devices:
 * Keyboard combinations
 * Gamepads, joysticks, Xbox controllers and similar devices*
-* Streamdeck*
+* Streamdeck\* and Bitfocus Companion\*
 
 \*Note: Gamepads and Streamdeck support must be enabled explicitly in the Hotkey settings.
 
@@ -39,9 +39,7 @@ When using *keyboard shortcuts*, note that the shortcuts are usually registered 
 
 ## USB device input support
 
-ATVO hotkeys and hotkeys in professional themes (such as ATVO Theme 2023) can be triggered by a keyboard shortcut or via various kinds of USB input devices, including gamepads, wheels or most button boxes.
-
-Theme Editor themes only support keyboard shortcuts at the moment, though input device support may come at a later time.
+Hotkeys also support various kinds of USB input devices, including gamepads, wheels or most button boxes. This must be enabled explicitly by checking 'Enable input from gamepads, joysticks and similar devices'. To use such an input device as a hotkey, ensure the 'Press desired keys' input is in focus and then click your device button.
 
 When using a gamepad or similar device button to register a hotkey, try to keep the device plugged into the same USB port. When switching USB ports, the device name may change and the hotkey will no longer work.
 
@@ -60,5 +58,20 @@ The Streamdeck plugin consists of two actions:
 From the Streamdeck editor in Windows, drag a Camera Controls action to your Streamdeck to create a new button. Select the button and use the `Type` dropdown to change the kind of command to use. When the button is pressed and ATVO is running, the corresponding action will be performed.
 
 ### Custom Hotkeys
-From the Streamdeck editor in Windows, drag a Custom Hotkey action to your Streamdeck to create a new button. Select the button and give it a unique `Name`. The name is what distinguishes this action from other custom hotkeys.
+From the Streamdeck editor in Windows, drag a Custom Hotkey action to your Streamdeck to create a new button. Select the button and give it a unique `Name`. The name is what distinguishes this action from other custom hotkeys. Ensure this name is unique, otherwise it will conflict with existing hotkeys or trigger unwanted actions!
 In your desired hotkey editor (ATVO Hotkey settings, or Theme settings), select the hotkey you wish to execute when the Streamdeck button is clicked (make sure it has keyboard focus). Next, press the button on your physical Streamdeck device to link the hotkey. The hotkey input in ATVO should say: `Streamdeck: [Name]`.
+
+
+## Bitfocus Companion
+We also provide a module for the Companion app to use alongside Streamdeck. This module has the same functionality as the Streamdeck plugin and offers the same Camera Controls and Custom Hotkeys actions. Ensure the Name you give to your Custom Hotkey actions is still unique to avoid conflicting with other hotkeys.
+
+### Installing the ATVO Companion module
+The Companion module is a zip file that must be downloaded separately and extracted anywhere on your computer. Next, you must configure Companion to look for developer modules on startup so it can find the module.
+
+1. [Download the module here](https://drive.google.com/file/d/1KSJ76ELQBzJBQIc9Ik6PcHMmztUhy3i9/view?usp=sharing)
+2. Create a new folder somewhere on your computer and call it 'Companion modules', for example `C:/Users/Your name/Documents/Companion modules`
+3. Extract the module zip file into the new folder, for example `C:/Users/Your name/Documents/Companion modules/companion-module-atvo`
+4. Start Companion and click the 'settings' cog in the top-right corner to expand the advanced settings.
+5. Under 'Developer modules path' select the folder from step 2 (**not** the `companion-module-atvo` folder, but its parent)
+6. Launch GUI. Add a new Connection and find `ATVO Appgineering`.
+7. Once connected, the Camera Controls and Custom Hotkeys actions will become available.
