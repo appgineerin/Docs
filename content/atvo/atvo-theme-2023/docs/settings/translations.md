@@ -24,7 +24,7 @@ The `Example` column shows the macros with some default value replaced.
 
 The translation supports some limited styling options similar to HTML:
 * Use `<b>text</b>` for <b>bold text</b>
-* Use `<B>text</B>` for <B>extra bold text</B>
+* Use `<B>text</B>` for <b>extra bold / 'black' text</b>
 * Use `<i>text</i>` for <i>italic text</i>
 * Use `<u>text</u>` for <u>underlined text</u>
 
