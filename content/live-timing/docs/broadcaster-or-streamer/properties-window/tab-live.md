@@ -28,3 +28,6 @@ distribution to your viewers.
 All the way at the bottom of the properties window, you can see a status indicator (5). It will show the current status
 of Live Timing. For easier overview the status bar as well as the property windows border will turn orange when Live
 Timing is running, and blue when it is stopped.
+
+**Note**: if another user is already broadcasting to the same room as you are trying to broadcast to, your broadcast
+will fail to start.
