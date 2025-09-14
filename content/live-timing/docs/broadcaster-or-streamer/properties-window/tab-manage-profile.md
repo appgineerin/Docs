@@ -71,7 +71,8 @@ will be deleted immediately and irreversible.
 ![](/img/share-access.png)
 
 The `Share access` tab allows you to share access to your profiles to other users and manage their access level to your
-profile. More information about the different access levels and their permissions can be found here. // TODO link
+profile. More information about the different access levels and their permissions can be found
+[here](../../permissions).
 The `Share access` tab gives you an overview of all users having access to your profile. By default, it only lists you
 as the owner of your profile.
 
