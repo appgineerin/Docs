@@ -29,7 +29,9 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        ATVO Theme 2023 description
+          Our ATVO Theme is the most professional broadcasting solution for iRacing available for the public. If you are
+          looking for a full feature set including highlights such as dedicated widgets for Championship Standings,
+          Qualifying and many more this full version of the ATVO theme is the right choice for you!
       </>
     ),
     url: '/atvo/atvo-theme-2023/intro/',
@@ -39,7 +41,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Live Timing description
+          Appgineering Live Timing is a state-of-the-art timing application which gives you as a use the ability to
+          provide live timings and scoring to your viewers.
       </>
     ),
     url: '/live-timing/intro/',

@@ -75,8 +75,8 @@ const config = {
               to: 'https://shop.appgineering.com',
             },
             {
-              label: 'ATVO Themes',
-              to: 'https://shop.appgineering.com/product-category/atvo-themes/',
+              label: 'ATVO Themes 2023 Pro',
+              to: 'https://shop.appgineering.com/pricing/atvo-theme-2023/pro/',
             },
           ],
         },
@@ -113,6 +113,10 @@ const config = {
               to: 'https://appgineering.com/impressum',
             },
             {
+              label: 'Privacy Policy',
+              to: 'https://appgineering.com/privacy-policy',
+            },
+            {
               label: 'GitHub',
               to: 'https://github.com/appgineerin',
             },
@@ -125,7 +129,7 @@ const config = {
         srcDark: 'img/logos/appgineering-dark.svg',
         href: 'https://appgineering.com',
       },
-      copyright: `© ${new Date().getFullYear()} Appgineering GbR. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Appgineering GbR.`,
     },
     socials: [
       {
