@@ -39,5 +39,5 @@ the time, the box is green and therefore the session is green. Other possible fl
 
 ## 2. Tabs
 
-Each room contains a series of tabs. The default and main tab is `Timing Table`. The [following pages](../tabs)
+Each room contains a series of tabs. The default and main tab is `Timing Table`. The [following pages](./tabs)
 will go into more detail about the available tabs.
