@@ -9,7 +9,7 @@ The main page for a Live Timing room is divided into multiple sections.
 
 1. [Header](./header)
 2. [Tabs](./tabs)
-3. [Filters](./filters)
+3. [Filters](./filter)
 4. [Line Map](./line-map)
 5. [Content](./tabs/timing-table)
 
