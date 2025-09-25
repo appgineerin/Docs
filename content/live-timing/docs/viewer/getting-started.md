@@ -8,3 +8,5 @@ To get started as a viewer simply head to [https://timing.appgineering.com](http
 live events currently being broadcast. Simply click on an event you would like to follow.
 
 ![](/img/lt-room-grid.png)
+
+The following pages explain the contents of Live Timing in detail.
