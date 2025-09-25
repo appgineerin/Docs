@@ -5,7 +5,7 @@ sidebar_position: 4
 # Line Map
 
 The line map shows the current distance of every car around the track. The closer a cars number is to the right, the
-further it is around the track.
+further it is around the track. Cars which are semi-transparent are current on pit road or no longer in the session.
 
 ![](/img/lt-room-line-map.png)
 
