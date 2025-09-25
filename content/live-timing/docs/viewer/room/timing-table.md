@@ -4,10 +4,13 @@ sidebar_position: 5
 
 # Timing Table
 
-The timing table contains the main timing data. Entries which are greyed out are on pit road or no longer in the
-session.
+The timing table contains the main timing data. 
 
 ![](/img/lt-room-timing-table.png)
+
+Entries which are greyed out are on pit road or no longer in the session.
+
+![](/img/lt-room-timing-table-pits.png)
 
 ## Columns
 
