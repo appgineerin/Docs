@@ -45,3 +45,25 @@ Some time columns, such as sectors 1 to 3, best, and last may have different col
 * White/Black: marks a time without any improvement but also being the most recently recorded time. See sector times in the
   image above. White and black show depending on your light-mode/dark-mode setting.
 * <span style={{color:'yellow'}}>Yellow</span>: marks a time without any improvement which is not the most recent time. See sector times in the image above.
+
+## Status Flags
+
+There are several status flags which show the status for each entry next to their name.
+
+### Disqualified
+
+A `DSQ` flag means that the entry has been disqualified from the race.
+
+![](/img/lt-entry-disqualified.png)
+
+### Black Flag
+
+A `BF` flag indicates that an entry has a penalty which still needs to be served.
+
+![](/img/lt-entry-black-flagged.png)
+
+### Meatball
+
+An orange `MB` flag indicates that an entry's car has damage and needs repairing.
+
+![](/img/lt-entry-meatballed.png)
