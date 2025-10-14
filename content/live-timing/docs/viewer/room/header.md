@@ -24,6 +24,8 @@ right:
   racetrack are.
 * **Air Temp**: Shows the current air temperature at the start finish line in Celsius and Fahrenheit.
 * **Track Temp**: Shows the current tack temperature at the start finish line in Celsius and Fahrenheit.
+* **Precipitation**: Shows how much it is raining right now at the start-finish line.
+* **Track Wetness**: Shows how wet the track is at the start-finish line.
 
 Next to the track temperature, there is large colored box. This box is the current flag state of the session. Most of
 the time, the box is green and therefore the session is green. Other possible flags could be yellow, white or checkered.
