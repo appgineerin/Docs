@@ -8,13 +8,13 @@ description: The three-tab detail page for each application — About, Versions,
 
 Clicking the body of an installed app row opens its full detail view. This view has three tabs and a header that always shows the app icon, name, and (where applicable) an **Update Available** button.
 
-<!--![Screenshot: The Application detail view for an installed app, showing the app icon and name at the top, the back arrow, the three tabs (Settings / Versions / About), and the active About tab content.](/img/launcher/app-detail.png)-->
+![Screenshot: The Application detail view for an installed app, showing the app icon and name at the top, the back arrow, the three tabs (Settings / Versions / About), and the active About tab content.](/img/launcher/app-detail.png)
 
 ## About Tab
 
 Shows the app's icon, name, current installed version, a markdown description provided by the publisher, and any helpful links such as a homepage, support contact, or documentation. Clicking a link opens it in your default browser.
 
-<!--![Screenshot: The About tab of an application detail view with a long markdown description and a couple of external links rendered as buttons.](/img/launcher/app-about.png)-->
+![Screenshot: The About tab of an application detail view with a long markdown description and a couple of external links rendered as buttons.](/img/launcher/app-about.png)
 
 ## Versions Tab
 
@@ -27,7 +27,7 @@ Lists every version of the application available across all release channels, ne
 
 If a version belongs to a different release channel than the one you are on, an info icon appears next to it. Hovering the icon explains that switching to that version will also switch your release channel.
 
-<!--![Screenshot: The Versions tab showing a scrollable list of versions. The current version is marked "Installed", newer versions on the same channel show an "Update" button, older versions show "Downgrade", and a beta-channel version shows an info icon explaining channel mismatch.](/img/launcher/app-versions.png)-->
+![Screenshot: The Versions tab showing a scrollable list of versions. The current version is marked "Installed", newer versions on the same channel show an "Update" button, older versions show "Downgrade", and a beta-channel version shows an info icon explaining channel mismatch.](/img/launcher/app-versions.png)
 
 Clicking a version row (outside its action button) opens the release notes for that version. See [Version History](./version-history.md) for details.
 

@@ -8,7 +8,7 @@ description: The notification bar at the bottom of the Launcher window — info,
 
 In addition to operating-system notifications, the Launcher shows in-app notifications at the bottom of the window for transient feedback such as completed installs, refresh failures, or warnings about a running app.
 
-<!--![Screenshot: The bottom of the main window with an info-style notification bar visible, showing an icon, a message ("Update available for ATVO"), and a dismiss "X" button.](/img/launcher/notification-bar.png)-->
+![Screenshot: The bottom of the main window with an info-style notification bar visible, showing an icon, a message ("ATVO installed successfully"), and a dismiss "X" button.](/img/launcher/notification-bar.png)
 
 Notifications come in three styles:
 

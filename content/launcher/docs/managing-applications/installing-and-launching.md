@@ -12,7 +12,7 @@ This page covers two of the most common actions in the Launcher: installing an a
 
 Click **Install** on any app in the Available section. The Launcher downloads the latest version on your release channel (Stable by default), runs the installer in the background, and moves the app to the **Installed** section when complete.
 
-<!--![Screenshot: An application row mid-install with a progress bar replacing the Install button, showing percentage and current speed.](/img/launcher/install-progress.png)-->
+![Screenshot: An application row mid-install with a progress bar replacing the Install button, showing percentage and current speed.](/img/launcher/install-progress.png)
 
 You can continue to use the Launcher while an install is in progress — browse other apps, change settings, or even start additional installs in parallel. Closing the window does not interrupt the install; it continues in the background. When the install finishes, a system notification tells you the app is ready to use.
 

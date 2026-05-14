@@ -8,7 +8,7 @@ description: The Settings tab of each application — installation path, channel
 
 The Settings tab of each application contains everything specific to that application's installation: where it lives on disk, which release channel it follows, whether updates are locked, and how to uninstall it.
 
-<!--![Screenshot: The full Settings tab of an application detail view, with all four sections visible: Installation Path, Release Channel, Version Lock, and the red Uninstall button at the bottom.](/img/launcher/app-settings-tab.png)-->
+![Screenshot: The full Settings tab of an application detail view, with all four sections visible: Installation Path, Release Channel, Version Lock, and the red Uninstall button at the bottom.](/img/launcher/app-settings-tab.png)
 
 ## Installation Path
 
@@ -28,7 +28,7 @@ A toggle that prevents the Launcher from auto-updating this application. See [Ve
 
 A red button that opens the uninstall confirmation dialog.
 
-<!--![Screenshot: The uninstall confirmation dialog with the app name in the title, an orange warning banner listing "This will also uninstall: ATVO Theme 2023", and Cancel / Uninstall buttons.](/img/launcher/uninstall-confirm.png)-->
+![Screenshot: The uninstall confirmation dialog with the app name in the title, an orange warning banner listing "This will also uninstall: ATVO Theme 2023", and Cancel / Uninstall buttons.](/img/launcher/uninstall-confirm.png)
 
 If the application has dependent child apps installed (for example, ATVO themes when uninstalling ATVO itself), the dialog lists them and warns that they will be uninstalled too. See [Themes & Child Applications](./themes-and-child-apps.md) for how dependencies work.
 
