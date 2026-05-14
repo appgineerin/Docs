@@ -12,7 +12,7 @@ When an installed app has a newer version available on its current channel, the 
 2. The application detail view shows an **Update Available** button in the header.
 3. The Versions tab shows the new version with an **Update** action.
 
-<!--![Screenshot: The application detail view with the "Update Available" button highlighted in the header and a small badge indicating the new version number.](/img/launcher/update-available.png)-->
+![Screenshot: The application detail view with the "Update Available" button highlighted in the header and a small badge indicating the new version number.](/img/launcher/update-available.png)
 
 Clicking any of these triggers the update. The new version is downloaded, the running app (if any) is closed, the update is applied, and the previous version is removed.
 
@@ -20,7 +20,7 @@ Clicking any of these triggers the update. The new version is downloaded, the ru
 
 If you trigger an update while the app is running, the Launcher shows a dialog asking whether to close the app and continue, or cancel the update.
 
-<!--![Screenshot: The "Close App to Continue" dialog overlay with the app name, an explanation, and two buttons: "Close App" and "Cancel".](/img/launcher/close-to-update.png)-->
+![Screenshot: The "Close App to Continue" dialog overlay with the app name, an explanation, and two buttons: "Close App" and "Cancel".](/img/launcher/close-to-update.png)
 
 Choosing **Close App** asks the app to close gracefully. If it does not respond within a few seconds, the Launcher waits for you to close it manually before continuing.
 
