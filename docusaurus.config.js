@@ -32,6 +32,10 @@ const config = {
       },
       items: [
         {
+          label: 'Launcher',
+          to: '/launcher/intro',
+        },
+        {
           label: 'ATVO',
           to: '#',
           type: 'dropdown',
