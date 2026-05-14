@@ -62,4 +62,4 @@ The first time the Launcher starts, the main window opens on your screen and the
 
 ![Screenshot: The Launcher main window as it appears immediately after first launch, with the first step of the onboarding tour overlay visible.](/img/launcher/first-launch.png)
 
-The window appears empty on first launch — no applications are installed yet. After dismissing or completing the tour, browse the **Available** section of the [Apps tab](./managing-applications/index.md) to install your first application.
+The window appears empty on first launch — no applications are installed yet. After dismissing or completing the tour, browse the **Available** section of the [Apps tab](./managing-applications/overview.md) to install your first application.
