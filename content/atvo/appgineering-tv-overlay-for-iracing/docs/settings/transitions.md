@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 # Replays & Transitions
-![ATVO Replays and Transitions Settings](../../static/img/settings/transitions.png)
+![ATVO Replays and Transitions Settings](../../static/img/settings/transitions.webp)
 
 The Replays & Transitions settings can be used to choose your own custom transition media, and to determine the default playback mode for Event and Bookmarks (e.g. play with or without transition, and play with or without margin).
 

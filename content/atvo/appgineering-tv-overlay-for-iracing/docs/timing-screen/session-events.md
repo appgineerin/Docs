@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The Session Events tab visualizes different kind of events.
 
-![ATVO Timing Screen Session Events Tab](../../static/img/timingscreen/timing-screen-eNASCAR-Session-Events.png)
+![ATVO Timing Screen Session Events Tab](../../static/img/timingscreen/timing-screen-eNASCAR-Session-Events.webp)
 
 Session events include:
 * Overtakes

@@ -8,7 +8,7 @@ description: Install, update, and launch Appgineering applications and services 
 
 The Appgineering Launcher is a lightweight desktop tray application that installs, updates, and launches all your Appgineering products from one place. It also gives you quick access to Appgineering web services such as Live Timing.
 
-![Screenshot: The Launcher main window open on the desktop, showing the "Apps" tab with a few installed applications listed and the system tray icon visible in the taskbar/menu bar.](/img/launcher/hero.png)
+![Screenshot: The Launcher main window open on the desktop, showing the "Apps" tab with a few installed applications listed and the system tray icon visible in the taskbar/menu bar.](/img/launcher/hero.webp)
 
 If you have used JetBrains Toolbox, the Epic Games Launcher, or a similar product, the Launcher will feel familiar — it sits in your tray or menu bar, keeps a small set of applications installed and up to date, and gets out of your way the rest of the time.
 
@@ -42,7 +42,7 @@ Step-by-step installation for each supported platform.
 
 Double-click the downloaded `Setup-win-x64.exe`. The installer runs in per-user mode, so you do not need administrator rights. It places the Launcher in your local application folder, creates a Start Menu entry, and adds it to the list of programs that start with Windows.
 
-![Screenshot: The Windows installer dialog mid-installation, showing the Appgineering branding and a progress indicator.](/img/launcher/install-windows.png)
+![Screenshot: The Windows installer dialog mid-installation, showing the Appgineering branding and a progress indicator.](/img/launcher/install-windows.webp)
 
 The installer is silent once started — there are no options to choose and no prompts to dismiss. When it finishes, the Launcher starts automatically.
 
@@ -60,6 +60,6 @@ If macOS warns that the installer is from an unidentified developer, open **Syst
 
 The first time the Launcher starts, the main window opens on your screen and the tray / menu bar icon appears. The first-launch tour begins automatically and walks you through the interface.
 
-![Screenshot: The Launcher main window as it appears immediately after first launch, with the first step of the onboarding tour overlay visible.](/img/launcher/first-launch.png)
+![Screenshot: The Launcher main window as it appears immediately after first launch, with the first step of the onboarding tour overlay visible.](/img/launcher/first-launch.webp)
 
 The window appears empty on first launch — no applications are installed yet. After dismissing or completing the tour, browse the **Available** section of the [Apps tab](./managing-applications/overview.md) to install your first application.

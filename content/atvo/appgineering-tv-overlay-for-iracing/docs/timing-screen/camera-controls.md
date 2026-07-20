@@ -6,7 +6,7 @@ sidebar_position: 8
 
 You may have noticed the camera controls in the bottom of the timing screen. This little tool helps you control the cameras in the sim.
 
-![ATVO Camera Controls](../../static/img/timingscreen/timing-screen-camera-controls.png)
+![ATVO Camera Controls](../../static/img/timingscreen/timing-screen-camera-controls.webp)
 
 ## Hotkeys
 Almost all of the actions available from the Camera Controls can also be performed via hotkeys. Please read the [ATVO hotkeys documentation](../../hotkeys) for more information.
@@ -56,7 +56,7 @@ Executes the selected actions (i.e. switching to a new camera or driver).
 
 To quickly switch to another camera or focused car, you can use the Quick Switch Camera popup. 
 
-![Quick Switch camera popup](../../static/img/timingscreen/quickswitch.png)
+![Quick Switch camera popup](../../static/img/timingscreen/quickswitch.webp)
 
 The popup can only be triggered via hotkeys via one of two actions:
 * Popups: Change Driver Focus

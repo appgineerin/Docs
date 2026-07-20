@@ -3,7 +3,7 @@
 This page will give you an overview of the available features within a room. The following pages will then give you a
 more in-depth look into the different parts of the page.
 
-![](/img/lt-room-overview-annotated.png)
+![](/img/lt-room-overview-annotated.webp)
 
 The main page for a Live Timing room is divided into multiple sections.
 

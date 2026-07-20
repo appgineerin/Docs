@@ -15,10 +15,10 @@ The widget supports various different display modes that you can choose from the
 
 
 The widget in 'Extended' mode with driver images:
-![Driver Info Comparison](../../static/img/widgets/compare.png)
+![Driver Info Comparison](../../static/img/widgets/compare.webp)
 
 The widget in 'Small' mode:
-![Driver Info Comparison](../../static/img/widgets/compare_small.png)
+![Driver Info Comparison](../../static/img/widgets/compare_small.webp)
 
 
 ## Selecting the drivers

@@ -13,7 +13,7 @@ Hotkeys currently support the following input devices:
 
 \*Note: Gamepads and Streamdeck support must be enabled explicitly in the Hotkey settings.
 
-![ATVO hotkeys](../static/img/timingscreen/hotkeys.png)
+![ATVO hotkeys](../static/img/timingscreen/hotkeys.webp)
 
 ## ATVO hotkeys and Theme hotkeys
 

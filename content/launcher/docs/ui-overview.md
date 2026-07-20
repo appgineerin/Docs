@@ -8,7 +8,7 @@ description: A tour of the Launcher window, the top bar, the tray icon, and how 
 
 This page describes the overall layout of the Launcher window so the rest of the documentation can refer to specific regions by name.
 
-![Screenshot: The full main window with annotations / callouts on each region: (1) Launcher update banner at the top, (2) Tab bar with "Apps" and "Services", (3) Search and refresh icons, (4) Settings menu button, (5) Application list, (6) Notification bar area at the bottom.](/img/launcher/ui-overview-annotated.png)
+![Screenshot: The full main window with annotations / callouts on each region: (1) Launcher update banner at the top, (2) Tab bar with "Apps" and "Services", (3) Search and refresh icons, (4) Settings menu button, (5) Application list, (6) Notification bar area at the bottom.](/img/launcher/ui-overview-annotated.webp)
 
 ## The Main Window
 
@@ -25,7 +25,7 @@ The top bar is the persistent header you see in every view of the Launcher. From
 - A **refresh** icon that re-fetches the catalog and checks installed apps for updates.
 - A **three-dot menu** that opens the launcher-wide menu (Settings, About, Help, Quit).
 
-![Screenshot: A close-up of the top bar showing the two tabs, the search and refresh icons, and the three-dot settings menu button.](/img/launcher/top-bar.png)
+![Screenshot: A close-up of the top bar showing the two tabs, the search and refresh icons, and the three-dot settings menu button.](/img/launcher/top-bar.webp)
 
 When you navigate to a detail view (such as an application page), the tabs are replaced by a back arrow and the title of the current screen.
 
@@ -33,7 +33,7 @@ When you navigate to a detail view (such as an application page), the tabs are r
 
 On Windows the Launcher places a colored icon in the system tray. On macOS it places a template (monochrome) icon in the menu bar that automatically adapts to your appearance setting. Clicking the icon toggles the window between hidden and visible — clicking it when the window is open hides the window, clicking it when the window is hidden brings it back.
 
-![Screenshot: The macOS menu bar with the Launcher's "A" icon visible alongside other menu bar items, plus a comparison shot of the Windows system tray with the colored Launcher icon.](/img/launcher/tray-icon.png)
+![Screenshot: The macOS menu bar with the Launcher's "A" icon visible alongside other menu bar items, plus a comparison shot of the Windows system tray with the colored Launcher icon.](/img/launcher/tray-icon.webp)
 
 <!--Right-clicking the icon (or holding `Ctrl` while clicking on macOS) opens a small context menu with **Show** and **Quit** options. **Quit** is the only way to fully stop the Launcher — closing the window only hides it.-->
 

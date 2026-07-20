@@ -6,11 +6,11 @@ sidebar_position: 5
 
 The timing table contains the main timing data. 
 
-![](/img/lt-room-timing-table.png)
+![](/img/lt-room-timing-table.webp)
 
 Entries which are greyed out are on pit road or no longer in the session.
 
-![](/img/lt-room-timing-table-pits.png)
+![](/img/lt-room-timing-table-pits.webp)
 
 ## Columns
 
@@ -54,16 +54,16 @@ There are several status flags which show the status for each entry next to thei
 
 A `DSQ` flag means that the entry has been disqualified from the race.
 
-![](/img/lt-entry-disqualified.png)
+![](/img/lt-entry-disqualified.webp)
 
 ### Black Flag
 
 A `BF` flag indicates that an entry has a penalty which still needs to be served.
 
-![](/img/lt-entry-black-flagged.png)
+![](/img/lt-entry-black-flagged.webp)
 
 ### Meatball
 
 An orange `MB` flag indicates that an entry's car has damage and needs repairing.
 
-![](/img/lt-entry-meatballed.png)
+![](/img/lt-entry-meatballed.webp)

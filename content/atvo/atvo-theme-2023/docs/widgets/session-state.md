@@ -6,8 +6,8 @@ sidebar_position: 2
 
 The Session State widget shows useful information about the current session, including time or laps remaining and flag states (green, yellow, white, gridding, etc). You can also choose to display the name of the current session or keep it hidden.
 
-![Session State](../../static/img/widgets/sessionstate1.png)
-![Session State](../../static/img/widgets/sessionstate2.png)
+![Session State](../../static/img/widgets/sessionstate1.webp)
+![Session State](../../static/img/widgets/sessionstate2.webp)
 
 ## Sponsor display modes
 The Session State widget can be displayed with a sponsor logo to the right side or to the bottom side. The behavior and look of the widget will slightly change depending on your selection.

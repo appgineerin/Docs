@@ -9,7 +9,7 @@ slug: /managing-applications
 
 The **Apps** tab is the core of the Launcher. It lists everything you can install, what you already have installed, and anything that is not compatible with your current system.
 
-![Screenshot: The Apps tab with all three sections visible — "Installed" expanded showing two apps, "Available" expanded showing several uninstalled apps, and "Unsupported" collapsed.](/img/launcher/apps-tab.png)
+![Screenshot: The Apps tab with all three sections visible — "Installed" expanded showing two apps, "Available" expanded showing several uninstalled apps, and "Unsupported" collapsed.](/img/launcher/apps-tab.webp)
 
 ## List Sections
 
@@ -27,7 +27,7 @@ The **Available** and **Unsupported** sections can be collapsed by clicking thei
 
 Clicking the magnifying glass icon in the top bar expands an animated search field. The list filters in real time as you type, across all three sections simultaneously. A small clear (×) button appears once you have typed something; clicking it empties the field and restores the full list.
 
-![Screenshot: The search bar expanded with the text "atvo" typed in, and the application list filtered down to only matching results.](/img/launcher/search-active.png)
+![Screenshot: The search bar expanded with the text "atvo" typed in, and the application list filtered down to only matching results.](/img/launcher/search-active.webp)
 
 Closing the search bar (clicking the magnifying glass again) also restores the full list.
 

@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 
 # Timing Screen
-![ATVO Timing Screen Settings](../../static/img/settings/atvo-settings-timingscreen-settings.png)
+![ATVO Timing Screen Settings](../../static/img/settings/atvo-settings-timingscreen-settings.webp)
 
 ## General Timing Screen Settings
 ### Restore Timing Screen windows layout

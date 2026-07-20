@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Manage Profile
 
-![](/img/tab-manage-profile-details.png)
+![](/img/tab-manage-profile-details.webp)
 
 The `Manage profile` tab allows you to manage your Live Timing profiles and their rooms. Each profile may contain
 multiple rooms. Within the `Manage profile` tab, there are several more tabs which allow you to change several different
@@ -19,7 +19,7 @@ Similar to logos for race events, logos for profiles may be set up in two differ
 for dark mode. When clicking on the `Update logos` button, a dialog pops up where you can specify the logos of your
 profile.
 
-![](/img/profile-update-logos.png)
+![](/img/profile-update-logos.webp)
 
 **Note**: all uploaded images are being tested by a content moderation system. Uploading images containing content which
 is not meant for a general audience is prohibited and will be blocked by our content moderation system.
@@ -30,7 +30,7 @@ With a click on the `Save` button, the changes to the profile can be saved.
 
 ## Rooms
 
-![](/img/manage-profile-rooms.png)
+![](/img/manage-profile-rooms.webp)
 
 The `Rooms` tab allows you to manage the set of rooms associated with your currently selected profile. Here you can
 create a new room, edit the currently selected one from the list, or delete it.
@@ -40,7 +40,7 @@ create a new room, edit the currently selected one from the list, or delete it.
 To create a new room, simply click the `New room` button. Once done, a new dialog appears where you need to enter a
 name for your room.
 
-![](/img/edit-room.png)
+![](/img/edit-room.webp)
 
 Additionally, you may want to override the appearance of your room for example to reflect the color scheme of a certain
 racing series. The colors section allows you to select from a set of accent and background colors. The accent color
@@ -68,7 +68,7 @@ will be deleted immediately and irreversible.
 
 ## Share Access
 
-![](/img/share-access.png)
+![](/img/share-access.webp)
 
 The `Share access` tab allows you to share access to your profiles to other users and manage their access level to your
 profile. More information about the different access levels and their permissions can be found
@@ -83,7 +83,7 @@ address in the appearing dialog and select the users access level. With a click 
 granted access to the profile if a user with the entered email address exists. Neither Live Timing nor ATVO will notify
 the grantee about the newly granted access to a profile.
 
-![](/img/grant-access.png)
+![](/img/grant-access.webp)
 
 ### Revoke Access
 

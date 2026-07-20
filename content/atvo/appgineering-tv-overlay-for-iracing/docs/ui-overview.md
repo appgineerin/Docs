@@ -10,9 +10,9 @@ You can of course also check the option to remember your credentials if you wish
 
 *Note: The login screen is currently only available on the alpha channel of ATVO*
 
-![ATVO First Start Login](../static/img/ui-overview/first-start-login.png)
+![ATVO First Start Login](../static/img/ui-overview/first-start-login.webp)
 
 ## Main window
 Once you are logged you will see the ATVO main window in all its glory. It is not only the starting point of your production with ATVO, once a theme has been loaded it will also be host of your theme controls.
 
-![ATVO UI Overview](../static/img/ui-overview/ui-overview.png)
+![ATVO UI Overview](../static/img/ui-overview/ui-overview.webp)

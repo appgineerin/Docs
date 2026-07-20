@@ -8,7 +8,7 @@ Remote Race Control is a separate application that connects to your ATVO graphic
 
 Remote Race Control acts as a remote client to your [ATVO Race Control server](../timing-screen/race-control.md). Read the Race Control page for information on how to use the server.
 
-![ATVO Remote Race Control](../../static/img/racecontrol/remote-race-control.png)
+![ATVO Remote Race Control](../../static/img/racecontrol/remote-race-control.webp)
 
 ## How to use
 

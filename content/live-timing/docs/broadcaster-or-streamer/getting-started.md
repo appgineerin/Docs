@@ -16,12 +16,12 @@ and start sending data.
 To access Live Timing from ATVO, you need to open ATVO. Within the main window, you will find a new menu item called
 `Live Timing`. For now this opens a submenu where you may still use the old Web Timing or the new Live Timing.
 
-![](/img/atvo-menu-bar.png)
+![](/img/atvo-menu-bar.webp)
 
 Once clicked, the Live Timing controls open, and you will be asked to create your first profile. A profile is basically
 your `user` you are broadcasting data as.
 
-![](/img/atvo-create-first-profile.png)
+![](/img/atvo-create-first-profile.webp)
 
 You need to enter a name and may provide a description and website for your profile. Hit `OK` to create your profile.
 More on profiles [here](../properties-window).

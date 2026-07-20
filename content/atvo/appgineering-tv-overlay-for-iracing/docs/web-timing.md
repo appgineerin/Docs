@@ -32,7 +32,7 @@ After clicking the web timing button in ATVO a new window will be shown.
 5. Connect to an iRacing session and click the *Start* button.
 6. Check the *Log* tab of the Web Timing in ATVO if there are any errors showing up.
 
-![ATVO Web Timing](../static/img/webtiming/webtiming-connection.png)
+![ATVO Web Timing](../static/img/webtiming/webtiming-connection.webp)
 
 
 ## Usage

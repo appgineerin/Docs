@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # General Settings
-![ATVO General Settings](../../static/img/settings/atvo-settings-general-settings.png)
+![ATVO General Settings](../../static/img/settings/atvo-settings-general-settings.webp)
 
 ## Data Source
 This dropdown is used to select where you want to receive data from. Default value is iRacing, but it can also be changed to Data Tunnel or Telemetry Recorder depending on which data source you would like to use.

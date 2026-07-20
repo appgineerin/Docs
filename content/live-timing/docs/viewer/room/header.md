@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Header
 
-![](/img/lt-room-header.png)
+![](/img/lt-room-header.webp)
 
 Up to is the header section. Here you can see the name of the current race event as well as the profile name of the
 broadcaster. If the broadcaster is verified by us, a little tick-mark will show up next to the profile name.

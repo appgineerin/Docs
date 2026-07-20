@@ -15,11 +15,11 @@ The remote client should connect to the **public** IP address of the computer ru
 
 We highly recommend to also specify a password if you want to use ATVO Remote. After setting up port and password just hit the **'Start Server'** button.
 
-![ATVO Remote Server](../../static/img/remote/remote-server.png)
+![ATVO Remote Server](../../static/img/remote/remote-server.webp)
 
 Other ATVO clients can connect to the **'ATVO Remote Server'** by entering the corresponding IP address, ATVO Remote port and password of the server.
 
-![ATVO Remote Client](../../static/img/remote/remote-client.png)
+![ATVO Remote Client](../../static/img/remote/remote-client.webp)
 
 #### Send Bookmarks
 If checked the bookmarks will be kept in sync between server and client.

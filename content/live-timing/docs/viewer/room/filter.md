@@ -14,7 +14,7 @@ button will reset the filter and clear every input field.
 
 ## Default
 
-![](/img/lt-room-filter-default.png)
+![](/img/lt-room-filter-default.webp)
 
 The default filter contains three different elements you can filter on.
 
@@ -29,7 +29,7 @@ show up. Cars with numbers not containing the number `7` will be hidden.
 As the name suggests, the `Driver or Team Name` filter allows you to enter any driver or team name - or even only parts
 of it. Upon typing, the input will suggest existing driver and/or team names to you.
 
-![](/img/lt-room-filter-dtn-suggestion.png)
+![](/img/lt-room-filter-dtn-suggestion.webp)
 
 The `Driver or Team Name` filter ignores character casing, meaning it does not matter if you enter the names in all
 lower-case or all upper-case letters.
@@ -40,19 +40,19 @@ The `Classes` filter allows you to filter for one or more car classes. Within th
 available car classes and can check each class you would like to filter for. At the very top of the filter, you can find
 an input where you can search for car classes by name.
 
-![](/img/lt-room-filter-classes.png)
+![](/img/lt-room-filter-classes.webp)
 
 You can select none, one or more car classes. Selecting no car class has the same effect as selecting all car classes.
 If any car class is selected, only the cars of the selected car class(es) will show up in Live Timing.
 
-![](/img/lt-room-filter-classes-selected.png)
+![](/img/lt-room-filter-classes-selected.webp)
 
 The small `X` next to the name of a car class in the input field itself allows you to quickly deselect a single
 selected car class.
 
 ## Session Events
 
-![](/img/lt-room-filter-session-events.png)
+![](/img/lt-room-filter-session-events.webp)
 
 Session events filters contain the same filters as the default with one addition.
 
@@ -60,21 +60,21 @@ The `Session Event Types` filter functions similar to the `Classes` filter where
 session event types from the list of available session event types. Again, you can search the available session events
 within the filter input. Selecting no session event has the same effect as selecting multiple.
 
-![](/img/lt-room-filter-session-events-selected.png)
+![](/img/lt-room-filter-session-events-selected.webp)
 
 The small `X` next to the name of a session event type in the input field itself allows you to quickly deselect a single
 selected session event type.
 
 ## Single Entry
 
-![](/img/lt-room-filter-entry.png)
+![](/img/lt-room-filter-entry.webp)
 
 The `Single Entry` filter allows you to select a single entry from the entry list. This filter is mainly used in
 [analytics](../analytics).
 
 ## Multiple Entries
 
-![](/img/lt-room-filter-entries.png)
+![](/img/lt-room-filter-entries.webp)
 
 The `Multiple Entry` filter allows you to select a single or multiple entries from the entry list. This filter is mainly
 used in [analytics](../analytics) to compare data between different entries.

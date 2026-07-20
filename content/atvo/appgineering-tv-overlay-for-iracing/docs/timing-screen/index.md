@@ -10,5 +10,5 @@ By default it also includes camera controls on the bottom of the window.
 
 Use the Timing Screen settings to specify which information you would like to be displayed on the timing screen.
 
-![ATVO Timing Screen (eNASCAR)](../../static/img/timingscreen/timing-screen-eNASCAR.png)
+![ATVO Timing Screen (eNASCAR)](../../static/img/timingscreen/timing-screen-eNASCAR.webp)
 

@@ -8,4 +8,4 @@ The Message widget can be used to display any custom message in a central locati
 
 The size of the widget will automatically scale when your message is too long to fit on one line.
 
-![Message](../../static/img/widgets/message.png)
+![Message](../../static/img/widgets/message.webp)

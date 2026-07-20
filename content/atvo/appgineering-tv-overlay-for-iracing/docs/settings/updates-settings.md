@@ -3,7 +3,7 @@ sidebar_position: 7
 ---
 
 # Updates
-![ATVO Updates Settings](../../static/img/settings/atvo-settings-updates-settings.png)
+![ATVO Updates Settings](../../static/img/settings/atvo-settings-updates-settings.webp)
 
 ## Update Channel
 ATVO offers three different channels for updates.

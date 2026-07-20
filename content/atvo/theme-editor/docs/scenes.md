@@ -6,7 +6,7 @@ sidebar_position: 3
 
 In the scenes editor you can create your own scenes.
 
-![Theme Editor Scenes](/img/editor-scenes.png)
+![Theme Editor Scenes](/img/editor-scenes.webp)
 
 A scene is a collection of widgets.
 

@@ -17,4 +17,4 @@ Following self-explanatory options are available:
 * FullName
 * Team
 
-![ATVO Timing Screen Drivers Button Box](../../static/img/timingscreen/timing-screen-drivers-button-box.png)
+![ATVO Timing Screen Drivers Button Box](../../static/img/timingscreen/timing-screen-drivers-button-box.webp)

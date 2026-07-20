@@ -8,7 +8,7 @@ The properties window of Live Timing within ATVO contains all necessary properti
 Here you may control your profiles, rooms, race events, and shared permissions. To open the properties window, click on
 `Live Timing` and then on `New Live Timing` within the menu bar of ATVO.
 
-![](/img/atvo-live-timing-location.png)
+![](/img/atvo-live-timing-location.webp)
 
 Upon clicking on `New Live Timing`, the properties window will open.
 
@@ -20,13 +20,13 @@ You need to enter a unique name as well as a description and a website URL for y
 button, your profile will be created. To ensure the newly created profile is not empty and can be used right away, we
 will create a room with the same name as the profile with it.
 
-![](/img/atvo-properties-first-launch.png)
+![](/img/atvo-properties-first-launch.webp)
 
 ## Overview of all Properties
 
 Once your first profile has been created, the properties window should look like this.
 
-![](/img/atvo-properties.png)
+![](/img/atvo-properties.webp)
 
 From here on, the properties window gives you full control over your Live Timing broadcast. The main components of the
 properties window are the following:
@@ -37,7 +37,7 @@ Profile controls allow you to create a new profile or delete the current one. A 
 profile creation dialog, where you can enter a unique name, description and website for your profile similar to above.
 A room with the same name as the profile will be created by default as well.
 
-![](/img/atvo-properties-create-profile.png)
+![](/img/atvo-properties-create-profile.webp)
 
 A click on `Delete Profile` allows you to delete the currently selected profile if your current permissions allow it.
 You will be prompted to confirm the deletion of the profile.

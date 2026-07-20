@@ -6,7 +6,7 @@ sidebar_position: 3
 
 The Theme Explorer contains every element you may use to create your theme. This is also the place where you can add or delete an element. Simply right click an element (e.g. Widgets). Once an element is created you can also right-click that element (e.g. Widget1) and rename it.
 
-![Theme Editor explorer](/img/editor-explorer.png)
+![Theme Editor explorer](/img/editor-explorer.webp)
 
 You can also use the search if you get lost when looking for an element you created.
 

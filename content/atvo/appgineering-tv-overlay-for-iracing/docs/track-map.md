@@ -11,7 +11,7 @@ To show one or multiple drivers of your choice on the track map just select one 
 To remove entities from the *Visible Entities* list simply select an entity and click on a single arrow pointing to the left.
 You can also populate the list of *Visible Entities* with all available hidden entities by clicking the double arrow pointing to the left side. To remove all entities again use the double arrow pointing to the left side.
 
-![ATVO Track Map Manager](../static/img/trackmap/track-map-manager.png)
+![ATVO Track Map Manager](../static/img/trackmap/track-map-manager.webp)
 
 ### Always include followed
 Will also always add the followed driver to the list of visible entities.

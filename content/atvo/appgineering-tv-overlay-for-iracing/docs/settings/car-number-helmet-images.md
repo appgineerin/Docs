@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 # Car, Number and Helmet images Settings
-![ATVO Car, Number and Helmet images Settings](../../static/img/settings/atvo-settings-car-number-helmet-images-settings.png)
+![ATVO Car, Number and Helmet images Settings](../../static/img/settings/atvo-settings-car-number-helmet-images-settings.webp)
 
 ## iRacing generated images
 ATVO can make use of the iRacing generated images for cars, numbers and helmets. 

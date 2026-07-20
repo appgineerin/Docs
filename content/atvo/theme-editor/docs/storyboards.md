@@ -19,7 +19,7 @@ Finally, each item also knows the duration of the actions it will execute. Not a
 ## Storyboard editor
 Below screenshot shows the editor where you control your Storyboard:
 
-![Storyboard Editor](../static/img/storyboard-editor.png)
+![Storyboard Editor](../static/img/storyboard-editor.webp)
 
 You can change the order of items by dragging/dropping them in place.
 

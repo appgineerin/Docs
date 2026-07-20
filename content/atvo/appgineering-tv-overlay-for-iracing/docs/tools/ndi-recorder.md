@@ -6,7 +6,7 @@ sidebar_position: 2
 
 The NDI Recorder can be used to "screen capture" the ATVO graphics (without capturing anything else in the background). The NDI stream can then be consumed by your streaming software, or even NDI hardware such as an NDI Tricaster or similar products.
 
-![NDI Recorder](../../static/img/tools/ndi-recorder.png)
+![NDI Recorder](../../static/img/tools/ndi-recorder.webp)
 
 ## Setting up NDI Recorder
 
@@ -27,4 +27,4 @@ Once installed, simply add a new Scene and then add a new NDI Source. Select the
 * Buffer size: if you are suffering from high CPU usage of NDI Recorder and a laggy stream, you can try increasing the buffer size. Normally, a buffer of 3 is ideal and a larger buffer makes no difference.
 * Enable performance statistics: if you are suffering from issues, you can temporarily enable this setting to see some more debug output in the preview window. Do not leave this option enabled for regular streaming as it could have a performance impact.
 
-![Advanced Settings](../../static/img/tools/ndi-advanced-settings.png)
+![Advanced Settings](../../static/img/tools/ndi-advanced-settings.webp)

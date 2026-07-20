@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Tabs
 
-![](/img/lt-room-tabs.png)
+![](/img/lt-room-tabs.webp)
 
 Each room contains a series of tabs. The default and main tab is `Timing Table`. The following tabs are available:
 

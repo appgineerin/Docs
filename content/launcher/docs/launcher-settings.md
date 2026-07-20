@@ -8,7 +8,7 @@ description: Global preferences for the Launcher — theme, update checks, insta
 
 Open the Launcher settings by clicking the three-dot menu in the top bar and selecting **Settings**. The Settings page has two tabs: **Settings** (the launcher-wide preferences described here) and **About** (covered on the [About & Licenses](./about.md) page).
 
-![Screenshot: The Launcher Settings page on its Settings tab, with all setting groups visible: Appearance, Updates, Storage, Help.](/img/launcher/launcher-settings.png)
+![Screenshot: The Launcher Settings page on its Settings tab, with all setting groups visible: Appearance, Updates, Storage, Help.](/img/launcher/launcher-settings.webp)
 
 ## Appearance
 
@@ -16,7 +16,7 @@ Open the Launcher settings by clicking the three-dot menu in the top bar and sel
 
 Toggles between the light and dark visual theme. By default the Launcher follows your operating system's appearance setting — if you change your OS to dark mode, the Launcher follows. Toggling **Dark Theme** in Settings overrides the system setting for the Launcher only.
 
-![Screenshot: Two side-by-side captures of the same main window — one in light theme and one in dark theme — demonstrating the difference.](/img/launcher/theme-comparison.png)
+![Screenshot: Two side-by-side captures of the same main window — one in light theme and one in dark theme — demonstrating the difference.](/img/launcher/theme-comparison.webp)
 
 The change takes effect immediately and is remembered the next time you start the Launcher.
 

@@ -37,7 +37,7 @@ If connecting over the internet (not over local LAN), make sure to connect using
 
 Race control messages and incidents are displayed in the Race control tab of the Timing screen for the ATVO instance that hosts the Remote Race Control Server. The server can also directly modify or update the incidents here if desired.
 
-![ATVO Race Control](../../static/img/racecontrol/atvo-race-control.png)
+![ATVO Race Control](../../static/img/racecontrol/atvo-race-control.webp)
 
 ## Incidents
 
@@ -53,7 +53,7 @@ If your graphics theme has been configured to show remote race control incidents
 
 For example, our built-in ATVO Theme 2023 supports showing drivers who are either 'under investigation' or have an active penalty, and will show the message widget when a remote message is sent.
 
-![ATVO Theme 2023 showing incidents and penalties](../../static/img/racecontrol/tower.png)
+![ATVO Theme 2023 showing incidents and penalties](../../static/img/racecontrol/tower.webp)
 
 ### Theme Editor
 

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Live
 
-![](/img/tab-live.png)
+![](/img/tab-live.webp)
 
 The `Live` tab gives you an overview over your current broadcast to Live Timing. Here you can see which event is
 currently being broadcasted to which room (1) And how your broadcast will look like. ATVO shows the current name of the

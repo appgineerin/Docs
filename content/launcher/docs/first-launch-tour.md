@@ -8,7 +8,7 @@ description: A guided six-step tour of the Launcher's interface, shown automatic
 
 The first time you open the Launcher, a guided tour highlights the key parts of the interface. The tour is non-dismissible by accident — you must either step through it or explicitly click **Skip**. You can replay it at any time from **Settings → Help → Show Tour**.
 
-![Screenshot: The first-launch tour overlay with the dimmed background and a highlight ring around the app list. The tour card shows the title, body text, "Step 2 of 6" indicator, and Back / Next / Skip buttons.](/img/launcher/tour-overview.png)
+![Screenshot: The first-launch tour overlay with the dimmed background and a highlight ring around the app list. The tour card shows the title, body text, "Step 2 of 6" indicator, and Back / Next / Skip buttons.](/img/launcher/tour-overview.webp)
 
 The tour consists of six steps:
 
@@ -21,7 +21,7 @@ The tour consists of six steps:
 
 The tour card automatically repositions itself near whichever UI element it is describing, and an animated highlight ring is drawn around that element to draw your eye to it.
 
-![Screenshot: Tour step 4 with the Settings menu dropdown open and the highlight ring around the menu, demonstrating the navigation step.](/img/launcher/tour-settings-menu.png)
+![Screenshot: Tour step 4 with the Settings menu dropdown open and the highlight ring around the menu, demonstrating the navigation step.](/img/launcher/tour-settings-menu.webp)
 
 ## Skipping or Restarting the Tour
 
