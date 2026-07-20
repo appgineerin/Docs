@@ -79,11 +79,11 @@ const config = {
             },
             {
               label: 'Appgineering Shop',
-              to: 'https://shop.appgineering.com',
+              to: 'https://appgineering.shop',
             },
             {
               label: 'ATVO Themes 2023 Pro',
-              to: 'https://shop.appgineering.com/pricing/atvo-theme-2023/pro/',
+              to: 'https://appgineering.shop/en/atvo-theme-2023',
             },
           ],
         },

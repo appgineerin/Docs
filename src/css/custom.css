@@ -722,30 +722,76 @@ table thead tr th {
    The autocomplete panel ships its own --aa-* palette in warm greys and a teal
    accent; left alone it is the one visibly off-brand surface on the site.
 
-   Both blocks are scoped to html[data-theme=...] (0,1,1) rather than :root
-   (0,1,0). The theme declares its palette on :root and its dark palette on
-   `body[data-theme=dark]`, but Docusaurus puts data-theme on <html>, so that
-   dark block never matches and the panel would otherwise stay on its light
-   values in dark mode. Winning on specificity rather than on stylesheet order
-   also means this survives a change in how the plugin's CSS is injected.
+   Both blocks land on BODY, not on :root/<html>, and that is the whole trick.
+   The theme declares its light palette on :root and its dark palette on
+   `body[data-theme=dark]`, and Docusaurus stamps data-theme on <html> AND on
+   <body>. So the theme's dark block does match, on a nearer element than
+   <html>: custom properties resolve per element, and a value declared on
+   <body> beats one inherited from <html> no matter how specific the html
+   selector is. Declaring on :root or html[data-theme] therefore lost every
+   --aa-* the theme redefines for dark (lavender #928aff accent, near-black
+   input, warm grey text), which is what made the panel read as a different
+   product.
+
+   `html[data-theme=x] body` (0,1,2) also out-specifies the theme's own
+   `body[data-theme=dark]` (0,1,1) on that same element, so this wins on
+   specificity rather than on stylesheet order and survives a change in how
+   the plugin's CSS is injected.
+
+   The channel triplets are COMMA-separated, not space-separated. The theme
+   consumes them as `rgba(var(--aa-x-rgb), var(--aa-x-alpha))`, i.e. the legacy
+   comma form, and `rgba(22 24 42, 1)` is not valid CSS in any browser: the
+   declaration is dropped and the element falls back to the theme's hardcoded
+   warm-grey literal, or to transparent. Space-separated channels only work in
+   the modern `rgb(r g b / a)` form, which this theme does not use. Do not
+   "modernise" these values.
    -------------------------------------------------------------------------- */
-html[data-theme="light"] {
-  --aa-primary-color-rgb: 27 79 232;
-  --aa-selected-color-rgb: 27 79 232;
+html[data-theme="light"] body {
+  --aa-primary-color-rgb: 27, 79, 232;
+  --aa-selected-color-rgb: 27, 79, 232;
   --aa-selected-color-alpha: 0.08;
-  --aa-muted-color-rgb: 102 105 121;
-  --aa-panel-border-color-rgb: 224 226 234;
+  --aa-muted-color-rgb: 102, 105, 121;
+  --aa-muted-color-alpha: 1;
+  --aa-icon-color-rgb: 102, 105, 121;
+  --aa-panel-border-color-rgb: 224, 226, 234;
+  --aa-input-border-color-rgb: 224, 226, 234;
   --aa-panel-shadow: 0 20px 40px -20px rgba(12, 13, 20, 0.45);
+  /* Lighter than the dark-mode scrim: a white panel already separates itself
+     from the page, and 0.6 over a light page dims it to something that reads
+     as dark mode rather than as a modal. */
+  --aa-overlay-color-alpha: 0.45;
 }
-html[data-theme="dark"] {
-  --aa-background-color-rgb: 22 24 42;
-  --aa-input-background-color-rgb: 22 24 42;
-  --aa-primary-color-rgb: 90 131 255;
-  --aa-selected-color-rgb: 90 131 255;
-  --aa-text-color-rgb: 255 255 255;
-  --aa-muted-color-rgb: 178 182 199;
-  --aa-panel-border-color-rgb: 45 48 70;
+html[data-theme="dark"] body {
+  --aa-background-color-rgb: 22, 24, 42;
+  --aa-input-background-color-rgb: 12, 13, 20;
+  --aa-primary-color-rgb: 90, 131, 255;
+  --aa-selected-color-rgb: 90, 131, 255;
+  --aa-selected-color-alpha: 0.14;
+  --aa-text-color-rgb: 255, 255, 255;
+  --aa-muted-color-rgb: 178, 182, 199;
+  --aa-muted-color-alpha: 1;
+  --aa-icon-color-rgb: 178, 182, 199;
+  --aa-panel-border-color-rgb: 45, 48, 70;
+  --aa-input-border-color-rgb: 45, 48, 70;
   --aa-panel-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  /* Heavier than light mode: the panel is only a few steps lighter than the
+     page here, so the scrim is what separates them. */
+  --aa-overlay-color-alpha: 0.7;
+}
+/* The scrim behind the modal. The theme's default is a warm grey
+   (115 114 129 @ 0.4) that greys the page out rather than darkening it; the
+   brand dims with its own near-black. The colour is shared, the opacity is
+   not: see the per-mode alphas above.
+
+   The two border alphas are forced to 1 because the theme ships them at 0.3
+   and 0.8 against its own muted lavender. The --ink/--surface border tokens
+   above are already the exact hairline value the rest of the site uses, so
+   any further fading just makes the panel edge disappear. */
+html[data-theme="light"] body,
+html[data-theme="dark"] body {
+  --aa-overlay-color-rgb: 12, 13, 20;
+  --aa-input-border-color-alpha: 1;
+  --aa-panel-border-color-alpha: 1;
 }
 /* The navbar control is a DETACHED SEARCH BUTTON (.aa-DetachedSearchButton),
    not an inline .aa-Form input: this plugin opens the search in a modal at
@@ -796,26 +842,42 @@ html[data-theme="dark"] {
 }
 
 /* The modal the button opens. Card geometry, brand type, and the search field
-   itself as a hairline input rather than the theme's default. */
-.aa-Panel,
+   itself as a hairline input rather than the theme's default.
+
+   Every selector here is prefixed with `.aa-DetachedContainer`, which is not
+   decoration: the theme's rules for these same elements are single-class
+   (0,1,0) and its stylesheet is injected AFTER this file, so a bare `.aa-Form`
+   here ties on specificity and loses the source-order tiebreak. Prefixed, each
+   rule is (0,2,0) and wins outright. `body` is prepended where the theme itself
+   already uses a two-class descendant selector (.aa-DetachedContainer .aa-Panel)
+   and a straight tie would fall back to order again.
+
+   .aa-DetachedContainer is also the correct scope on its own terms: this plugin
+   opens the search as a detached modal at every viewport width, so there is no
+   inline panel for these rules to miss. */
 .aa-DetachedContainer {
   font-family: var(--apg-font);
 }
-.aa-Panel {
+/* The card radius belongs to the container, not the panel: in detached mode the
+   theme flattens .aa-Panel to radius 0 and the container is the visible card
+   (radius 6px from .aa-DetachedContainer--modal). Below the modal breakpoint
+   the container is full-screen and must stay square, hence --modal here. */
+body .aa-DetachedContainer--modal {
   border-radius: 16px;
 }
-.aa-DetachedFormContainer {
+.aa-DetachedContainer .aa-DetachedFormContainer {
   border-bottom-color: var(--ifm-toc-border-color);
+  padding: 12px;
 }
-.aa-Form {
+.aa-DetachedContainer .aa-Form {
   border-radius: 10px;
   border-width: 2px;
 }
-.aa-Form:focus-within {
+.aa-DetachedContainer .aa-Form:focus-within {
   box-shadow: none;
   border-color: var(--ifm-color-primary);
 }
-.aa-DetachedCancelButton {
+.aa-DetachedContainer .aa-DetachedCancelButton {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -824,16 +886,26 @@ html[data-theme="dark"] {
   box-shadow: none;
   border: 2px solid var(--ifm-toc-border-color);
   color: var(--ifm-color-content-secondary);
+  padding: 0 12px;
 }
-.aa-DetachedCancelButton:hover {
+.aa-DetachedContainer .aa-DetachedCancelButton:hover,
+.aa-DetachedContainer .aa-DetachedCancelButton:focus {
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
   box-shadow: none;
 }
-.aa-ItemContentTitle {
+/* Result rows pick up the same 8px control radius as the rest of the site
+   rather than the theme's 3px. */
+.aa-DetachedContainer .aa-Item {
+  border-radius: 8px;
+}
+.aa-DetachedContainer .aa-ItemContentTitle {
   font-weight: 600;
 }
-.aa-SourceHeaderTitle {
+.aa-DetachedContainer .aa-ItemContentTitle mark {
+  font-weight: 800;
+}
+.aa-DetachedContainer .aa-SourceHeaderTitle {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
