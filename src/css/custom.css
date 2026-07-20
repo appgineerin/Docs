@@ -341,6 +341,17 @@ h1 {
   color: var(--surface-dark-text);
   border-bottom-color: var(--apg-blue-on-dark);
 }
+/* A plain navbar entry is a single <a class="navbar__item navbar__link">, so it
+   picks up .navbar__item's vertical padding and its block display. A dropdown
+   toggle is a bare <a class="navbar__link"> wrapped in the .navbar__item div,
+   so it gets neither: it stayed inline with no padding-top, which dropped its
+   label ~2px below its neighbours and lifted its underline ~2px above theirs.
+   Restate both here so the toggle's box matches a plain item's exactly. */
+.navbar .dropdown > .navbar__link {
+  display: block;
+  padding-top: var(--ifm-navbar-item-padding-vertical);
+}
+
 /* Infima adds a caret via ::after on dropdown toggles; the border-bottom above
    would otherwise run under it at a different baseline than the label. */
 .navbar .dropdown > .navbar__link::after {

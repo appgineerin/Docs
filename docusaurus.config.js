@@ -45,8 +45,12 @@ const config = {
           to: '/launcher/intro',
         },
         {
+          // No `to`: the label is a pure toggle, not a destination. The mobile
+          // dropdown only calls preventDefault when it has no target of its own
+          // (it derives href as `props.to ? undefined : '#'`), so giving this a
+          // `to: '#'` made tapping the label navigate as well as toggle, and
+          // only the chevron button opened the submenu.
           label: 'ATVO',
-          to: '#',
           type: 'dropdown',
           items: [
             {
