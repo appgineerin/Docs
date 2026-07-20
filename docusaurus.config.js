@@ -25,10 +25,13 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
       title: 'Docs',
+      // The navbar is near-black in BOTH colour modes (it mirrors the main
+      // site's ft-on-dark header), so there is no srcDark counterpart: the
+      // white wordmark is correct on that bar in light mode too. Same file the
+      // shop and marketing site use, so the mark matches pixel for pixel.
       logo: {
-        alt: 'Appgineering Logo',
-        src: 'img/logos/appgineering.svg',
-        srcDark: 'img/logos/appgineering-dark.svg',
+        alt: 'Appgineering',
+        src: 'img/logos/logo_white.png',
       },
       items: [
         {
@@ -127,10 +130,11 @@ const config = {
           ],
         },
       ],
+      // Same reasoning as the navbar: the footer band is near-black in both
+      // colour modes, so the white cut is the only correct one.
       logo: {
-        alt: 'Meta Open Source Logo',
-        src: 'img/logos/appgineering.svg',
-        srcDark: 'img/logos/appgineering-dark.svg',
+        alt: 'Appgineering',
+        src: 'img/logos/logo_white.png',
         href: 'https://appgineering.com',
       },
       copyright: `© ${new Date().getFullYear()} Appgineering GbR.`,
@@ -140,8 +144,12 @@ const config = {
         url: 'https://twitter.com/appgineering',
       },
     ],
+    // The brand system is light-first (--ink-100 page, near-black bands), and
+    // the marketing site has no dark mode at all, so light is the default that
+    // matches it. Dark mode is fully themed and still honours the OS setting.
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
+      respectPrefersColorScheme: true,
     },
     prism: {
       theme: lightCodeTheme,
@@ -156,7 +164,12 @@ const config = {
         docs: false,
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          // Order matters: the brand tokens (a straight copy of the main
+          // site's) have to resolve before custom.css maps them onto Infima.
+          customCss: [
+            require.resolve('./src/css/tokens.css'),
+            require.resolve('./src/css/custom.css'),
+          ],
         },
         sitemap: {
           changefreq: 'daily',

@@ -1,37 +1,187 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* Homepage hero: the one place the docs speak in the marketing site's voice.
+   Structure is a straight port of the main site's Hero section: a light band,
+   a two-column grid with copy left and a skewed near-black slab right, a chip +
+   label eyebrow, display-1 headline, two skewed CTAs and a three-cell strip.
 
-.heroBanner {
-  padding: 4rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-  /*background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.6)), to(rgba(29, 210, 177, 0.6)));
-  background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-  background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);*/
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
+   The previous hero was a teal/purple gradient over a stock photo with the
+   vertical logo lockup; none of that exists in the brand system any more. */
 
 .hero {
-  background: url("/img/index-bg-gray.webp") no-repeat center center;
-  background-size: cover;
-  padding: 0;
-  height: 75vh;
+  padding: 96px var(--gutter);
+  background: var(--ifm-background-color);
+  /* The skew and the slab deliberately bleed past their columns. `clip`
+     contains that horizontally without creating a scroll container. */
+  overflow-x: clip;
 }
 
-.container {
-  align-self: center;
-  color: white;
+.heroInner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
+  align-items: center;
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.accent {
+  color: var(--ifm-color-primary);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+/* The brand's two hero CTAs (ft-btn-dark + ft-btn-ghost). Both flip on colour
+   mode rather than using Infima's button--primary/--outline: the marketing
+   hero pairs a near-black solid with a hairline ghost, and on a near-black page
+   that solid is invisible, so dark mode swaps it for the light cut. */
+.ctaPrimary {
+  background: var(--ink-900);
+  color: var(--surface-dark-text);
+  border: 2px solid transparent;
+}
+.ctaPrimary:hover {
+  background: #22243a;
+  color: var(--surface-dark-text);
+}
+.ctaGhost {
+  background: transparent;
+  border: 2px solid var(--ink-300);
+  color: var(--ink-900);
+}
+.ctaGhost:hover {
+  border-color: var(--ink-900);
+  color: var(--ink-900);
+}
+[data-theme='dark'] .ctaPrimary {
+  background: #ffffff;
+  color: var(--ink-900);
+}
+[data-theme='dark'] .ctaPrimary:hover {
+  background: var(--ink-200);
+  color: var(--ink-900);
+}
+[data-theme='dark'] .ctaGhost {
+  border-color: var(--surface-dark-border);
+  color: var(--surface-dark-text);
+}
+[data-theme='dark'] .ctaGhost:hover {
+  border-color: var(--surface-dark-text);
+  color: var(--surface-dark-text);
+}
+
+/* Three fills in brand order. The strip is skewed as a unit with each label
+   counter-skewed, so the cells share slanted edges with no gaps between them. */
+.strip {
+  display: flex;
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -20px rgba(12, 13, 20, 0.4);
+}
+.strip li {
+  padding: 14px 24px;
+  color: var(--surface-dark-text);
+}
+.strip li:nth-child(1) {
+  background: var(--ink-900);
+}
+.strip li:nth-child(2) {
+  background: var(--apg-blue);
+}
+.strip li:nth-child(3) {
+  background: var(--signal-red-ink);
+}
+/* The near-black cell is the same value as the page in dark mode, where it
+   would read as a gap between the label and the blue cell rather than as a
+   segment. Lift it onto the slate step so the strip stays three solid cells. */
+[data-theme='dark'] .strip li:nth-child(1) {
+  background: var(--ink-700);
+}
+.strip span {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+.heroArt {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slab {
+  position: absolute;
+  inset: 0 calc(-1 * var(--gutter) - 60px) 0 40px;
+  background: var(--ink-900);
+  border-radius: 24px 0 0 24px;
+  transform: skewX(var(--skew));
+}
+.mark {
+  position: relative;
+  padding: 0 24px;
+}
+.mark img {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+/* In dark mode the slab is the same value as the page behind it, so it needs a
+   hairline to stay a distinct object rather than dissolving into the band. */
+[data-theme='dark'] .slab {
+  border: 1px solid var(--surface-dark-hairline);
+  border-right: 0;
+}
+
+/* Responsive ladder, the same breakpoints the main site uses. */
+@media (max-width: 1180px) {
+  .hero {
+    padding: 72px var(--gutter);
+  }
+}
+@media (max-width: 996px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  /* Below the fold-split the slab has no column of its own to bleed out of and
+     would just be a black box under the copy, so it drops entirely. */
+  .heroArt {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .hero {
+    padding: 44px var(--gutter);
+  }
+  .strip {
+    margin-top: 36px;
+  }
+  .strip li {
+    padding: 12px 16px;
+  }
+  .strip span {
+    font-size: 11px;
+  }
 }

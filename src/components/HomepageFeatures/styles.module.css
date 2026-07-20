@@ -1,11 +1,91 @@
+/* Product cards on the homepage. Brand card geometry: 2px border, 16px radius,
+   border goes blue and the card lifts 3px on hover. */
+
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 64px var(--gutter) 96px;
+  background: var(--ifm-background-color);
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 2px solid var(--ifm-toc-border-color);
+  border-radius: 16px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-3px);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.body {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 12px 0 0;
+}
+
+/* The guillemet motif, pushed to the bottom of the card so the arrow lines up
+   across a row regardless of how long each body runs. */
+.arrow {
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--ifm-color-primary);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.06em;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+.card:hover .arrow {
+  opacity: 1;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .features {
+    padding: 40px var(--gutter) 56px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }

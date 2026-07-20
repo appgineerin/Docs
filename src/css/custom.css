@@ -1,44 +1,1012 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* Appgineering Docs: Full Throttle theme.
+   =============================================================================
+   The Docusaurus-side adaptation of the brand system. tokens.css holds the
+   brand truth (colours, font, skew) and is a straight copy of the main site's
+   token block; this file maps those tokens onto Infima's variables and adds the
+   handful of component rules Infima has no variable for.
 
-/* You can override the default Infima variables here. */
+   Deliberately zero swizzled theme components. Infima is variable-driven end to
+   end, so remapping variables gets the whole site on-brand without forking
+   Docusaurus internals that would then need re-merging on every upgrade. Every
+   rule below is either a variable assignment or a selector Infima does not
+   expose a variable for.
+
+   Two structural departures from the main site, both intentional:
+
+   1. Body copy stays upright, not italic-uppercase. The brand display cut
+      (.ft-display-*, italic 900 uppercase) is a marketing voice: it is used
+      here for the homepage hero and the h1 of a page, and nowhere else.
+      Technical headings like "Configuring the NDI output source" are unreadable
+      set in 900-weight italic caps, so h2-h6 use the upright 800 cut instead.
+
+   2. Dark mode is a first-class surface, not a band. The main site is light
+      with near-black bands; a docs site has a colour-mode toggle, so dark mode
+      inverts the whole page. --apg-blue-on-dark carries every blue in it,
+      because the base --apg-blue is 3.07:1 on --ink-900 and fails AA.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. Infima bridge: light mode
+   The primary ramp is generated around --apg-blue: Infima uses -dark/-darker/
+   -darkest for hover/active/pressed and -light/-lighter/-lightest for tints, so
+   these are lightness steps of the accent rather than arbitrary blues.
+   -------------------------------------------------------------------------- */
 :root {
-  --ifm-color-primary: #00A9B2;
-  --ifm-color-primary-dark: #00747A;
-  --ifm-color-primary-darker: #003E42;
-  --ifm-color-primary-darkest: #00090A;
-  --ifm-color-primary-light: #00D0DB;
-  --ifm-color-primary-lighter: #05F2FF;
-  --ifm-color-primary-lightest: #2DF4FF;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: var(--apg-blue);
+  --ifm-color-primary-dark: #1847d1;
+  --ifm-color-primary-darker: #1642c4;
+  --ifm-color-primary-darkest: #1237a2;
+  --ifm-color-primary-light: #3363eb;
+  --ifm-color-primary-lighter: #416ded;
+  --ifm-color-primary-lightest: #6b8ef1;
+
+  /* Type */
+  --ifm-font-family-base: var(--apg-font);
+  --ifm-font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+  --ifm-font-weight-semibold: 700;
+  --ifm-font-weight-bold: 800;
+  --ifm-heading-font-family: var(--apg-font);
+  --ifm-heading-font-weight: 800;
+  --ifm-heading-color: var(--ink-900);
+  /* -0.01em matches .ft-h2 on the main site; the brand sets display type tight. */
+  --ifm-heading-line-height: 1.15;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+
+  /* Surfaces. --ink-100 is the main site's page background; content surfaces
+     (cards, code, the sidebar) sit on white above it, which is the same
+     light-band/white-card relationship the brand uses. */
+  --ifm-background-color: var(--ink-100);
+  --ifm-background-surface-color: #ffffff;
+  --ifm-font-color-base: var(--ink-900);
+  --ifm-font-color-secondary: var(--ink-600);
+  --ifm-color-content-secondary: var(--ink-600);
+
+  /* Emphasis ramp. Infima derives borders, dividers and muted text from these.
+     Left on the cool neutral ramp so nothing reverts to Infima's warm greys. */
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: var(--ink-200);
+  --ifm-color-emphasis-200: var(--ink-300);
+  --ifm-color-emphasis-300: var(--ink-400);
+  --ifm-color-emphasis-400: #a8acbb;
+  --ifm-color-emphasis-500: var(--ink-500);
+  --ifm-color-emphasis-600: var(--ink-600);
+  --ifm-color-emphasis-700: var(--ink-700);
+  --ifm-color-emphasis-800: var(--ink-800);
+  --ifm-color-emphasis-900: var(--ink-900);
+
+  /* Semantic colours mapped to the brand signal accents. The -ink cuts are used
+     wherever the colour carries small text (admonition titles, badges). */
+  --ifm-color-success: var(--signal-green);
+  --ifm-color-warning: var(--signal-amber);
+  --ifm-color-danger: var(--signal-red-ink);
+  --ifm-color-info: var(--apg-blue);
+
+  /* Geometry. The brand uses 16px on cards and 10px on buttons; --ifm-global-radius
+     drives the smaller controls, cards get 16px explicitly further down. */
+  --ifm-global-radius: 10px;
+  --ifm-code-border-radius: 6px;
+  --ifm-alert-border-radius: 16px;
+  --ifm-alert-border-width: 2px;
+  --ifm-alert-border-left-width: 2px;
+  --ifm-pagination-nav-border-radius: 16px;
+  --ifm-button-border-radius: 10px;
+
+  /* Links. The brand underlines nothing and colours on hover instead. */
+  --ifm-link-color: var(--apg-blue);
+  --ifm-link-hover-color: var(--apg-blue-hover);
+  --ifm-link-decoration: none;
+  --ifm-link-hover-decoration: underline;
+
+  /* Navbar: permanently near-black in both colour modes, matching the main
+     site's <header className="ft-on-dark">. See section 3. */
+  --ifm-navbar-height: 64px;
+  --ifm-navbar-background-color: var(--ink-900);
+  --ifm-navbar-link-color: var(--surface-dark-text-muted);
+  --ifm-navbar-link-hover-color: var(--surface-dark-text);
+  --ifm-navbar-search-input-background-color: rgba(255, 255, 255, 0.08);
+  --ifm-navbar-search-input-color: var(--surface-dark-text);
+  --ifm-navbar-search-input-placeholder-color: var(--surface-dark-text-muted);
+  --ifm-navbar-shadow: none;
+
+  /* Footer: permanently near-black, same reasoning as the navbar. */
+  --ifm-footer-background-color: var(--ink-900);
+  --ifm-footer-color: var(--surface-dark-text-muted);
+  --ifm-footer-link-color: var(--surface-dark-text-muted);
+  --ifm-footer-link-hover-color: var(--apg-blue-on-dark);
+  --ifm-footer-title-color: var(--surface-dark-text);
+
+  /* Sidebar menu. Both background vars are transparent on purpose: the hover
+     and current-page markers are painted by a skewed ::before in section 6, and
+     leaving Infima's own rounded-rect background on would draw a second,
+     unskewed shape behind it. */
+  --ifm-menu-color: var(--ink-600);
+  --ifm-menu-color-active: var(--apg-blue);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-menu-color-background-hover: transparent;
+
+  /* Code. Only --ifm-code-background is set: it drives inline <code>, which the
+     content uses on ~35 pages. --ifm-pre-background is deliberately NOT
+     overridden: the content has no fenced code blocks at all, and forcing a
+     near-black <pre> while the light Prism theme (github, see the config) still
+     paints dark syntax colours on top would render the first code block anyone
+     adds unreadable. Left to the Prism theme, which sets its own background. */
+  --ifm-code-font-size: 88%;
+  --ifm-code-background: var(--ink-200);
+  --docusaurus-highlighted-code-line-bg: rgba(27, 79, 232, 0.18);
+
+  /* Tables, quotes, rules */
+  --ifm-table-border-color: var(--ink-300);
+  --ifm-table-head-background: var(--ink-200);
+  --ifm-table-stripe-background: rgba(12, 13, 20, 0.025);
+  --ifm-blockquote-color: var(--ink-600);
+  --ifm-blockquote-border-color: var(--apg-blue);
+  --ifm-hr-border-color: var(--ink-300);
+  --ifm-toc-border-color: var(--ink-300);
+
+  /* Dropdown / breadcrumbs */
+  --ifm-dropdown-background-color: #ffffff;
+  --ifm-breadcrumb-color-active: var(--apg-blue);
+  --ifm-breadcrumb-item-background-active: var(--apg-blue-soft);
+  --ifm-breadcrumb-border-radius: 8px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #00A9B2;
-  --ifm-color-primary-dark: #00747A;
-  --ifm-color-primary-darker: #003E42;
-  --ifm-color-primary-darkest: #00090A;
-  --ifm-color-primary-light: #00D0DB;
-  --ifm-color-primary-lighter: #05F2FF;
-  --ifm-color-primary-lightest: #2DF4FF;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* -----------------------------------------------------------------------------
+   2. Infima bridge: dark mode
+   Every blue switches to --apg-blue-on-dark. The base --apg-blue is 3.07:1 on
+   --ink-900 and fails AA for text, so it survives here only as a fill behind
+   white text (buttons, the active-menu background), never as text itself.
+
+   The selector is `html[data-theme=...]`, not a bare `[data-theme=...]`:
+   Infima declares its own dark palette at that specificity (0,1,1), so a bare
+   attribute selector (0,1,0) loses to it no matter how late this file loads and
+   the whole of dark mode silently falls back to Infima's stock #1b1b1d greys.
+   -------------------------------------------------------------------------- */
+html[data-theme="dark"] {
+  --ifm-color-primary: var(--apg-blue-on-dark);
+  --ifm-color-primary-dark: #3f6dff;
+  --ifm-color-primary-darker: #2f61ff;
+  --ifm-color-primary-darkest: #1b4fe8;
+  --ifm-color-primary-light: #7599ff;
+  --ifm-color-primary-lighter: #85a5ff;
+  --ifm-color-primary-lightest: #a8c0ff;
+
+  --ifm-background-color: var(--ink-900);
+  --ifm-background-surface-color: var(--ink-800);
+  --ifm-font-color-base: var(--surface-dark-text);
+  --ifm-font-color-secondary: var(--surface-dark-text-muted);
+  --ifm-color-content-secondary: var(--surface-dark-text-muted);
+  --ifm-heading-color: var(--surface-dark-text);
+
+  --ifm-color-emphasis-0: var(--ink-900);
+  --ifm-color-emphasis-100: #14162a;
+  --ifm-color-emphasis-200: #1d2036;
+  --ifm-color-emphasis-300: #2a2d45;
+  --ifm-color-emphasis-400: #3d4159;
+  --ifm-color-emphasis-500: #6f748c;
+  --ifm-color-emphasis-600: #9096ab;
+  --ifm-color-emphasis-700: #b4b9c9;
+  --ifm-color-emphasis-800: #d7dae3;
+  --ifm-color-emphasis-900: #ffffff;
+
+  /* --signal-green and --signal-amber both clear AA on --ink-900; only the red
+     needs the bright cut back (--signal-red-ink is 2.4:1 on near-black). */
+  --ifm-color-danger: var(--signal-red);
+  --ifm-color-info: var(--apg-blue-on-dark);
+
+  --ifm-link-color: var(--apg-blue-on-dark);
+  --ifm-link-hover-color: #8aa8ff;
+
+  /* Both background vars transparent, matching the light block: the hover wash
+     and the current-page bar are drawn by ::before / ::after in section 6. */
+  --ifm-menu-color: var(--surface-dark-text-muted);
+  --ifm-menu-color-active: var(--apg-blue-on-dark);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-menu-color-background-hover: transparent;
+
+  --ifm-code-background: rgba(255, 255, 255, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(90, 131, 255, 0.2);
+
+  --ifm-table-border-color: var(--surface-dark-hairline);
+  --ifm-table-head-background: rgba(255, 255, 255, 0.05);
+  --ifm-table-stripe-background: rgba(255, 255, 255, 0.03);
+  --ifm-blockquote-color: var(--surface-dark-text-muted);
+  --ifm-blockquote-border-color: var(--apg-blue-on-dark);
+  --ifm-hr-border-color: var(--surface-dark-hairline);
+  --ifm-toc-border-color: var(--surface-dark-hairline);
+
+  --ifm-dropdown-background-color: var(--ink-800);
+  --ifm-breadcrumb-color-active: var(--apg-blue-on-dark);
+  --ifm-breadcrumb-item-background-active: rgba(90, 131, 255, 0.14);
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Focus
+   Infima's default focus ring is the browser outline in the primary colour, but
+   the primary colour changes per surface here: on the permanently-dark navbar
+   and footer, --apg-blue is 3.07:1 and reads as a smudge. Anything inside a
+   dark chrome region gets the lightened accent regardless of colour mode.
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+.navbar :focus-visible,
+.footer :focus-visible {
+  outline-color: var(--apg-blue-on-dark);
+}
+
+/* -----------------------------------------------------------------------------
+   4. Headings
+   h1 takes the brand display cut (italic 900 uppercase). h2-h6 stay upright at
+   800; see the file header for why. -0.02/-0.01em tracking mirrors the .ft-*
+   scale; Archivo is a grotesque and sets loose at large sizes without it.
+   -------------------------------------------------------------------------- */
+.markdown > h1,
+h1 {
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-wrap: balance;
+  /* Clamped floors are larger than the content box at 375px, so a single long
+     word (product names, German compounds) overflows without these. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.markdown > h1 {
+  font-size: clamp(32px, 4.2vw, 48px);
+  margin-bottom: 1.2rem;
+}
+/* Sizes go through Infima's --ifm-h*-font-size variables rather than a literal
+   font-size. Infima scales headings down at narrow widths by reassigning those
+   variables inside its own media queries; setting font-size directly wins over
+   that mechanism and freezes h2 at its desktop size on a phone. */
+.markdown > h2 {
+  --ifm-h2-font-size: 1.75rem;
+  letter-spacing: -0.015em;
+  font-weight: 800;
+  /* A hairline above each h2 gives long reference pages a visible spine. */
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding-top: 2rem;
+  margin-top: 2.5rem;
+}
+/* An h2 that opens the article has nothing above it to separate from. */
+.markdown > h2:first-child {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+.markdown > h3 {
+  --ifm-h3-font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+.markdown > h4,
+.markdown > h5,
+.markdown > h6 {
+  font-weight: 800;
+}
+
+/* Anchor links: brand blue, and only on hover of the heading itself. */
+.hash-link {
+  color: var(--ifm-color-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   5. Navbar
+   Near-black in both colour modes with a hairline base, matching the main
+   site's sticky ft-on-dark header. Links are the brand's small tracked
+   uppercase cut with a blue underline on the active route.
+   -------------------------------------------------------------------------- */
+.navbar {
+  border-bottom: 1px solid var(--surface-dark-hairline);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.navbar__title {
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--surface-dark-text);
+  font-size: 17px;
+}
+.navbar__logo {
+  height: 22px;
+  margin-right: 12px;
+}
+.navbar__link,
+.navbar .dropdown > .navbar__link {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  /* Reserve the underline's space so the active state does not shift the row. */
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.navbar__link--active {
+  color: var(--surface-dark-text);
+  border-bottom-color: var(--apg-blue-on-dark);
+}
+/* Infima adds a caret via ::after on dropdown toggles; the border-bottom above
+   would otherwise run under it at a different baseline than the label. */
+.navbar .dropdown > .navbar__link::after {
+  border-width: 0.3em 0.3em 0;
+  margin-left: 0.4em;
+  opacity: 0.7;
+}
+
+/* The dropdown panel is a light popover on a dark bar in light mode, the same
+   ft-on-light-inside-ft-on-dark case the main site handles, and it needs the
+   same explicit re-inversion or it inherits the bar's white link colour. */
+.navbar .dropdown__menu {
+  border: 2px solid var(--ink-300);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 20px 40px -20px rgba(12, 13, 20, 0.45);
+}
+[data-theme="dark"] .navbar .dropdown__menu {
+  border-color: var(--surface-dark-hairline);
+}
+.navbar .dropdown__link {
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-700);
+}
+[data-theme="dark"] .navbar .dropdown__link {
+  color: var(--surface-dark-text-muted);
+}
+/* Explicit fills rather than --ifm-menu-color-background-active: that variable
+   is transparent in this theme (the sidebar paints its own markers), and the
+   dropdown genuinely does want a hover fill. */
+.navbar .dropdown__link:hover,
+.navbar .dropdown__link--active {
+  background: var(--apg-blue-soft);
+  color: var(--apg-blue);
+}
+html[data-theme="dark"] .navbar .dropdown__link:hover,
+html[data-theme="dark"] .navbar .dropdown__link--active {
+  background: rgba(90, 131, 255, 0.14);
+  color: var(--apg-blue-on-dark);
+}
+
+/* The colour-mode toggle and hamburger sit on the dark bar in both modes, so
+   their glyphs are white regardless of --ifm-font-color-base. */
+.navbar__toggle,
+.navbar .clean-btn {
+  color: var(--surface-dark-text);
+}
+/* The mobile drawer slides out of the navbar, so it is near-black in both
+   colour modes for the same reason the navbar is. That means it also has to
+   redeclare everything Infima only inverts inside html[data-theme='dark']:
+   in light mode the drawer is a dark surface that the framework still believes
+   is light. */
+.navbar-sidebar {
+  background: var(--ink-900);
+  color: var(--surface-dark-text);
+  /* Infima's category caret is a data-URI with a hardcoded fill of
+     rgba(0,0,0,0.5) and is only inverted under html[data-theme='dark'].
+     Without this the expand/collapse chevrons are black-on-near-black and
+     invisible in the light-mode drawer. Value copied from Infima's own dark
+     declaration so the two stay identical. */
+  --ifm-menu-link-sublist-icon-filter: invert(100%) sepia(94%) saturate(17%)
+    hue-rotate(223deg) brightness(104%) contrast(98%);
+}
+.navbar-sidebar .menu__link {
+  color: var(--surface-dark-text-muted);
+}
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active {
+  color: var(--surface-dark-text);
+}
+.navbar-sidebar .menu__link:hover::before {
+  background: rgba(255, 255, 255, 0.06);
+}
+/* The "back to main menu" button inherits colour from .clean-btn and takes its
+   fill from --ifm-menu-color-background-active, which this theme sets to
+   transparent (see section 1). Left alone it is an unstyled invisible control. */
+.navbar-sidebar__back {
+  color: var(--surface-dark-text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.navbar-sidebar__back:hover {
+  color: var(--surface-dark-text);
+  background: rgba(255, 255, 255, 0.12);
+}
+.navbar-sidebar__brand {
+  border-bottom: 1px solid var(--surface-dark-hairline);
+  box-shadow: none;
+}
+/* The colour-mode toggle sits on the dark bar in both modes, so its hover fill
+   has to be the light-on-dark wash, not Infima's dark-on-light one. */
+.navbar .clean-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* GitHub mark, inherited from the previous theme, now white in both modes
+   because the bar it sits on is near-black in both. */
+.header-github-link:hover {
+  opacity: 0.7;
+}
 .header-github-link::before {
-  content: '';
-  width: 24px;
-  height: 24px;
+  content: "";
+  width: 22px;
+  height: 22px;
   display: flex;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
-  no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+  transition: opacity 0.15s ease;
 }
 
-[data-theme='dark'] .header-github-link::before {
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
-  no-repeat;
+/* -----------------------------------------------------------------------------
+   6. Sidebar and TOC
+   -------------------------------------------------------------------------- */
+/* The sidebar is the SAME surface as the page, divided by a hairline, not a
+   raised panel in a different value. The brand has no white/lighter side
+   panels: its dark and light bands are one flat colour each, separated by
+   1px hairlines (--surface-dark-hairline / --ink-300). Giving the sidebar
+   --ifm-background-surface-color made it a lighter slab floating next to the
+   content, which is the single biggest reason the column read as off-brand. */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-toc-border-color) !important;
+  background: transparent;
+}
+.menu {
+  padding: 1rem 0.75rem !important;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Sidebar item hover and current-page marker.
+   Both are painted by a skewed ::before rather than by the element's own
+   background, so the marker is a parallelogram in the brand's livery instead of
+   Infima's rounded pill. The text stays upright because only the pseudo-element
+   is transformed, which is what makes this work without swizzling the sidebar
+   (there is no inner element to counter-skew).
+
+   Infima's own backgrounds are switched off at the variable level rather than
+   with !important overrides: with the two --ifm-menu-color-background-* vars
+   set to transparent, nothing has to be out-specified. */
+.menu__link {
+  position: relative;
+  z-index: 0;
+  border-radius: 0;
+  line-height: 1.35;
+}
+/* Hover is a neutral wash, never a blue one: blue means "current" here, and
+   tinting hover blue as well made every row look half-selected. */
+.menu__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 6px;
+  background: transparent;
+  transition: background-color 0.15s ease;
+}
+.menu__link:hover::before {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Current page: blue bold label plus a solid skewed blue bar on the leading
+   edge. No fill.
+
+   The fill is gone on purpose. A tinted pill needs a colour that is neither the
+   surface nor the accent, and the brand has no such colour on dark: mixing
+   --apg-blue into --ink-900 produces the muddy indigo this originally used,
+   which belongs to no part of the system. The bar is the accent at full
+   strength against the flat band, which is exactly how the marketing site marks
+   state (a solid blue rule under the current nav link).
+
+   The bar is also where the livery skew finally reads. Skewing the row itself
+   was pointless: at 253px wide and 34px tall an 8deg skew shifts the edges by
+   2.4px, under 1% of the width, so it rendered as a plain rectangle. On a 4px
+   bar the same angle is unmistakable. */
+.menu__link--active:not(.menu__link--sublist) {
+  font-weight: 800;
+}
+.menu__link--active:not(.menu__link--sublist)::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+  transform: skewX(var(--skew));
+}
+
+/* Top-level categories are deliberately NOT given the brand's tracked-uppercase
+   label cut. In these sidebars a level-1 category ("Remote", "Settings") sits
+   directly beside a level-1 plain link ("Hotkeys", "Web Timing"), so styling
+   only the categories as small caps splits one visual list into two competing
+   scales. Uniform 14px reads as the single list it actually is. */
+.table-of-contents {
+  font-size: 13px;
+  font-weight: 600;
+}
+.table-of-contents__link--active {
+  font-weight: 800;
+}
+.table-of-contents__left-border {
+  border-left-color: var(--ifm-toc-border-color);
+}
+
+/* -----------------------------------------------------------------------------
+   7. Buttons, cards, admonitions, pagination
+   The brand's control geometry: uppercase 800 at 0.08em tracking, 10px radius,
+   and a 0.97 press scale. Cards are 2px-bordered 16px-radius objects that
+   border-highlight to blue on hover.
+   -------------------------------------------------------------------------- */
+.button {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-width: 2px;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 0.15s ease;
+}
+.button:active {
+  transform: scale(0.97);
+}
+/* transform is a single property, so the bare scale() above REPLACES the skew
+   rather than composing with it: without this the two skewed hero CTAs snap
+   upright for the duration of the press. Both transforms have to be restated
+   together, in this order. */
+.ft-skew.button:active {
+  transform: skewX(var(--skew)) scale(0.97);
+}
+
+.card,
+.pagination-nav__link {
+  border: 2px solid var(--ifm-toc-border-color);
+  border-radius: 16px;
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-3px);
+}
+.pagination-nav__sublabel {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+}
+.pagination-nav__label {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.alert {
+  border-style: solid;
+  box-shadow: none;
+}
+/* Docusaurus renders the admonition title as a <div> with a hashed CSS-module
+   class, not as an <h5> and not under a stable .admonition-heading. There is no
+   selector for it that survives a version bump, so it is left alone rather than
+   pinned to a generated class name copied out of a build artifact. The content
+   currently uses no admonitions at all; if that changes, swizzle Admonition
+   instead of guessing at its class names. */
+
+.breadcrumbs__link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+/* The current crumb is the brand's blue chip: a skewed parallelogram with the
+   label upright inside it. Same ::before technique as the sidebar marker, and
+   for the same reason (the crumb is a bare <span> with no inner element to
+   counter-skew). The blue is the base --apg-blue in both colour modes because
+   this is a FILL carrying white text, not blue text on a dark surface: white on
+   #1b4fe8 is 7.8:1 either way. */
+.breadcrumbs__item--active .breadcrumbs__link {
+  position: relative;
+  z-index: 0;
+  background: transparent;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  font-size: 11px;
+}
+.breadcrumbs__item--active .breadcrumbs__link:hover {
+  background: transparent;
+  color: #ffffff;
+}
+.breadcrumbs__item--active .breadcrumbs__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--apg-blue);
+  border-radius: 6px;
+  transform: skewX(var(--skew));
+}
+/* The home crumb is an icon button; keep its box unskewed but match the radius
+   so the row reads as one set of controls. */
+.breadcrumbs__item .breadcrumbs__link {
+  border-radius: 6px;
+}
+
+/* Code blocks pick up the card geometry; the brand has no hairline-thin boxes. */
+div[class^="codeBlockContainer"] {
+  border-radius: 12px;
+  box-shadow: none;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+/* Infima gives inline code a 0.1rem rgba(0,0,0,0.1) border, which reads as a
+   grey smudge against the cool --ink-200 fill. The fill alone is the delimiter. */
+code {
+  border: 0;
+  font-weight: 500;
+}
+
+/* Tables: the brand sets tabular figures wherever numbers align in columns. */
+table {
+  font-variant-numeric: tabular-nums;
+}
+table thead tr th {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Footer
+   Near-black in both modes. Column titles take the tracked-uppercase label cut
+   with the brand's blue accent dash.
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--surface-dark-hairline);
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.footer__title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer__title::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: var(--apg-blue-on-dark);
+}
+.footer__link-item {
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.footer__copyright {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--surface-dark-text-muted);
+}
+.footer__logo {
+  max-width: 180px;
+}
+
+/* -----------------------------------------------------------------------------
+   9. Search (@cmfcmf/docusaurus-search-local → autocomplete-theme-classic)
+   The autocomplete panel ships its own --aa-* palette in warm greys and a teal
+   accent; left alone it is the one visibly off-brand surface on the site.
+
+   Both blocks are scoped to html[data-theme=...] (0,1,1) rather than :root
+   (0,1,0). The theme declares its palette on :root and its dark palette on
+   `body[data-theme=dark]`, but Docusaurus puts data-theme on <html>, so that
+   dark block never matches and the panel would otherwise stay on its light
+   values in dark mode. Winning on specificity rather than on stylesheet order
+   also means this survives a change in how the plugin's CSS is injected.
+   -------------------------------------------------------------------------- */
+html[data-theme="light"] {
+  --aa-primary-color-rgb: 27 79 232;
+  --aa-selected-color-rgb: 27 79 232;
+  --aa-selected-color-alpha: 0.08;
+  --aa-muted-color-rgb: 102 105 121;
+  --aa-panel-border-color-rgb: 224 226 234;
+  --aa-panel-shadow: 0 20px 40px -20px rgba(12, 13, 20, 0.45);
+}
+html[data-theme="dark"] {
+  --aa-background-color-rgb: 22 24 42;
+  --aa-input-background-color-rgb: 22 24 42;
+  --aa-primary-color-rgb: 90 131 255;
+  --aa-selected-color-rgb: 90 131 255;
+  --aa-text-color-rgb: 255 255 255;
+  --aa-muted-color-rgb: 178 182 199;
+  --aa-panel-border-color-rgb: 45 48 70;
+  --aa-panel-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+}
+/* The navbar control is a DETACHED SEARCH BUTTON (.aa-DetachedSearchButton),
+   not an inline .aa-Form input: this plugin opens the search in a modal at
+   every viewport width. Styling .aa-Form alone leaves the visible control
+   completely stock (3px radius, lavender #928aff label, purple-grey border) on
+   a near-black brand navbar.
+
+   It is a real ghost button in the brand's livery: skewed parallelogram, its
+   two children counter-skewed so the icon and label stay upright. Because the
+   button has real child elements this is the true .ft-skew / .ft-skew-i motif
+   rather than the ::before stand-in the breadcrumb and sidebar need. */
+.navbar .aa-DetachedSearchButton {
+  height: 36px;
+  padding: 0 14px;
+  gap: 8px;
+  border-radius: 10px;
+  border: 2px solid var(--surface-dark-border);
+  background: transparent;
+  color: var(--surface-dark-text-muted);
+  transform: skewX(var(--skew));
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.navbar .aa-DetachedSearchButton:hover {
+  border-color: var(--surface-dark-text);
+  color: var(--surface-dark-text);
+  background: transparent;
+}
+.navbar .aa-DetachedSearchButton > * {
+  transform: skewX(var(--skew-inv));
+}
+/* A plain outline on a skewed box paints as a parallelogram that reads as a
+   rendering bug, so the ring is a box-shadow that follows the transform. */
+.navbar .aa-DetachedSearchButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ink-900), 0 0 0 5px var(--apg-blue-on-dark);
+}
+.navbar .aa-DetachedSearchButtonIcon {
+  color: inherit;
+  width: auto;
+}
+.navbar .aa-DetachedSearchButtonPlaceholder {
+  font-family: var(--apg-font);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+/* The modal the button opens. Card geometry, brand type, and the search field
+   itself as a hairline input rather than the theme's default. */
+.aa-Panel,
+.aa-DetachedContainer {
+  font-family: var(--apg-font);
+}
+.aa-Panel {
+  border-radius: 16px;
+}
+.aa-DetachedFormContainer {
+  border-bottom-color: var(--ifm-toc-border-color);
+}
+.aa-Form {
+  border-radius: 10px;
+  border-width: 2px;
+}
+.aa-Form:focus-within {
+  box-shadow: none;
+  border-color: var(--ifm-color-primary);
+}
+.aa-DetachedCancelButton {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 2px solid var(--ifm-toc-border-color);
+  color: var(--ifm-color-content-secondary);
+}
+.aa-DetachedCancelButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  box-shadow: none;
+}
+.aa-ItemContentTitle {
+  font-weight: 600;
+}
+.aa-SourceHeaderTitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* At the mobile breakpoint the navbar swaps to a compact icon-only control;
+   the uppercase label would blow out the bar's width there. */
+@media (max-width: 996px) {
+  .navbar .aa-DetachedSearchButtonPlaceholder {
+    display: none;
+  }
+  .navbar .aa-DetachedSearchButton {
+    padding: 0 10px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   10. Brand primitives
+   The subset of the main site's fullthrottle.css the docs actually use: the
+   skew motif, band backgrounds and the display type scale. Ported rather than
+   re-derived, so the homepage speaks the same language as a marketing page.
+
+   The display clamps are one step smaller than the source (display-1 tops out
+   at 76px here against 92px there). That is deliberate, not drift: the source
+   hero is full-bleed at --page-max, while this one shares its row with the
+   docs chrome, and the source ceiling overflows that column.
+   Any element carrying .ft-skew MUST have a single .ft-skew-i child wrapping
+   its content, otherwise the text renders slanted.
+   -------------------------------------------------------------------------- */
+.ft-skew {
+  transform: skewX(var(--skew));
+}
+.ft-skew-i {
+  display: inline-block;
+  transform: skewX(var(--skew-inv));
+}
+/* A plain outline on a skewed box renders as a parallelogram that reads as a
+   rendering bug, so skewed controls get a box-shadow ring that follows the
+   transformed geometry instead. */
+.ft-skew:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ifm-background-color),
+    0 0 0 5px var(--ifm-color-primary);
+}
+
+.ft-band-dark {
+  background: var(--ink-900);
+  color: var(--surface-dark-text);
+}
+.ft-display-1,
+.ft-display-3,
+.ft-h2,
+.ft-h3,
+.ft-label,
+.ft-stat {
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.ft-display-1 {
+  font-size: clamp(40px, 6vw, 76px);
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  margin: 0;
+}
+.ft-display-3 {
+  font-size: clamp(30px, 4vw, 52px);
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+  margin: 0;
+}
+.ft-h2 {
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0;
+}
+/* Card heading. This is the cut the marketing site uses on its service and
+   product cards; .ft-h2 is a section heading and is roughly double the size,
+   which made the homepage cards read as three competing sections. */
+.ft-h3 {
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
+}
+.ft-body-sm {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0;
+}
+.ft-label {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.ft-lead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+}
+.ft-muted {
+  color: var(--ifm-color-content-secondary);
+}
+.ft-band-dark .ft-muted {
+  color: var(--surface-dark-text-muted);
+}
+/* .ft-chip is the near-black default and .ft-chip-blue the accent variant, as
+   on the main site. They were briefly collapsed into one blue .ft-chip here,
+   which made the class name lie about what it paints and would have quietly
+   diverged the moment either site's chip changed. */
+.ft-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ink-900);
+  color: var(--surface-dark-text);
+}
+.ft-chip-blue {
+  background: var(--apg-blue);
+  color: #ffffff;
+}
+/* Decorative guillemet motif trailing the hero headline. Sits a touch lighter
+   than the text it follows so it reads as ornament, not content. */
+.ft-chevrons {
+  margin-left: 0.28em;
+  opacity: 0.55;
+  letter-spacing: -0.06em;
+}
+.ft-accent-dash::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 3px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: var(--ifm-color-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   11. Reduced motion
+   Drop the transforms; colour cross-fades are not motion and are left intact.
+   -------------------------------------------------------------------------- */
+/* The source steps .ft-lead down to 16px on phones; 18px lead over a 20px
+   gutter is too loose at that width. */
+@media (max-width: 640px) {
+  .ft-lead {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button:active,
+  .pagination-nav__link:hover {
+    transform: none;
+  }
+  /* Not `transform: none`: that would also drop the skew and snap the hero CTAs
+     upright. Only the press-scale is removed. */
+  .ft-skew.button:active {
+    transform: skewX(var(--skew));
+  }
 }

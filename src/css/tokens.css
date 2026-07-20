@@ -1,0 +1,125 @@
+/* Appgineering: Full Throttle design tokens.
+   =============================================================================
+   The :root block below is ported from appgineering-ecommerce/src/styles/
+   tokens.css so the docs site and the main site resolve the same values. Keep
+   that block a straight copy: when the palette moves on the main site, this is
+   the one file to re-sync. Everything Docusaurus-specific (the Infima bridge,
+   navbar/sidebar/footer styling) lives in custom.css instead.
+
+   The @font-face block is the one part that is NOT a copy and must survive a
+   re-sync: the main site has no @font-face at all, because it loads Archivo
+   through next/font/local (src/fonts/index.ts), which Docusaurus cannot use.
+
+   One family (Archivo, self-hosted), one electric blue accent against
+   near-black on a cool light grey, and an 8-degree livery skew.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Archivo, the single family of the Full Throttle system.
+   SIL Open Font License 1.1 (static/fonts/OFL.txt). Self-hosted, never fetched
+   from fonts.googleapis.com or any third-party origin (GDPR/DSGVO), which is
+   also why this is a @font-face block rather than a <link> in the config.
+
+   Both files are variable fonts carrying the full wght 100-900 range, so these
+   two declarations cover every cut the design uses (upright 500-900 and italic
+   800/900) in ~120 KB total.
+
+   The format hint is plain format("woff2"), NOT format("woff2-variations").
+   The latter is a keyword from a withdrawn CSS Fonts 4 draft that only WebKit
+   ever shipped, and an unrecognised format() makes the UA skip that src
+   component: with no second component to fall back to, the whole face is
+   dropped and every browser that does not know the keyword (Firefox, among
+   others) renders the entire site in Arial with synthesised weights and a
+   faux-oblique display cut. Variable WOFF2 loads correctly under plain
+   format("woff2") in every browser that supports variable fonts, and browsers
+   that do not render the default instance rather than dropping the face.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/Archivo-Roman-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/Archivo-Italic-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Appgineering blue */
+  --apg-blue: #1b4fe8;
+  --apg-blue-soft: #e8eefe;
+  /* --apg-blue on --ink-900 measures 3.07:1 and fails AA. This lightened blue
+     is 5.6:1 on --ink-900. Use it for any blue TEXT on a dark surface (which,
+     here, means all of dark mode plus the permanently-dark navbar and footer);
+     the base --apg-blue stays correct on light surfaces and as a fill. */
+  --apg-blue-on-dark: #5a83ff;
+  /* Hover cut of --apg-blue, matching .ft-btn-primary:hover on the main site. */
+  --apg-blue-hover: #1642c4;
+
+  /* Neutral ramp: cool, low-saturation */
+  --ink-100: #f2f3f6;
+  --ink-200: #f1f1f4;
+  --ink-300: #e0e2ea;
+  --ink-400: #c9ccd6;
+  /* The design draws small muted labels in #8a8fa8, which measures 2.87:1 on
+     --ink-100 and fails AA at the 10-12px sizes it is used at. --ink-500 is the
+     AA-safe substitute (5.2:1); #8a8fa8 is deliberately not a token. */
+  --ink-500: #666979;
+  --ink-600: #5c6071;
+  --ink-700: #2e3142;
+  --ink-800: #16182a;
+  --ink-900: #0c0d14;
+
+  /* Dark-surface tokens. */
+  --surface-dark-text: #ffffff;
+  /* 4.9:1 on --ink-900. Do not lower this opacity for text. */
+  --surface-dark-text-muted: rgba(255, 255, 255, 0.7);
+  --surface-dark-hairline: rgba(255, 255, 255, 0.15);
+  /* Decorative only (ghost-button borders), never text. */
+  --surface-dark-border: rgba(255, 255, 255, 0.3);
+
+  /* Signal accents (used sparingly, no gradients) */
+  --signal-green: #00c26a;
+  --signal-amber: #f2a91d;
+  --signal-red: #e5314b;
+  /* Darkened red (5.6:1 on --ink-100) for small/normal-weight TEXT that must
+     meet WCAG AA; the bright --signal-red is fine for decorative fills. */
+  --signal-red-ink: #c41e38;
+
+  /* Layout rhythm */
+  --gutter: 48px;
+  --page-max: 1440px;
+
+  /* The livery skew. Applied to an outer element with the inner content
+     counter-skewed so glyphs stay upright inside a slanted parallelogram. */
+  --skew: -8deg;
+  --skew-inv: 8deg;
+
+  --apg-font:
+    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* --gutter steps down with the viewport. This ladder lives in the main site's
+   fullthrottle.css section 10 rather than its tokens.css, but it belongs with
+   the token it retargets: without it --gutter stays at its 48px desktop value
+   all the way down and the homepage sits in a 96px-wide pair of margins on a
+   phone. */
+@media (max-width: 1180px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+    /* The skew reads as damage at phone widths where elements are near
+       full-bleed, so it is dialled back rather than dropped. */
+    --skew: -5deg;
+    --skew-inv: 5deg;
+  }
+}
