@@ -14,7 +14,8 @@ workflow:
 
 .base:
   tags:
-    - gitlab-org-docker
+    - linux
+    - node
 
 .tf-base:
   extends: .base
@@ -34,10 +35,10 @@ workflow:
 docs:
   extends: .base
   stage: docs
-  image: node:16
+  image: node:20
   script:
-    - npm i
-    - npx npm run build
+    - npm ci
+    - npm run build
   artifacts:
     paths:
       - build

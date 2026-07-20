@@ -35,7 +35,7 @@ Data sets and bindings are selected for a specific widget in the following way:
 Before any data can be displayed on a label, it must first be represented as a 'string', e.g. textual data. Especially for bindings that return numeric data, the conversion to a string can have many choices with different results. To control the conversion of any kind of data to textual string data, we support a specific kind of formatting to the data via the label's Text property.
 
 ### Binding data placeholders
-The Text property defines the placeholders that the data binding system replaces with the actual data. Around these placeholders, you can type any other static textual data. Placeholders are of the form '{x}', where x is the ID (number) of the data binding as shown in the selected data bindings of the label (starting with 0).
+The Text property defines the placeholders that the data binding system replaces with the actual data. Around these placeholders, you can type any other static textual data. Placeholders are of the form `{x}`, where x is the ID (number) of the data binding as shown in the selected data bindings of the label (starting with 0).
 
 The most simple example is therefore to simply return the first data binding value directly:
 * Text: `{0}`
@@ -47,10 +47,10 @@ To add static text around this placeholder, you'd use for example:
 * Text: `My name is {0}.`
 * Result: `My name is Nick.`
 
-If you have selected multiple data bindings on one label, you can show the additional bindings via the placeholders {1}, {2}, {3}, etc.
+If you have selected multiple data bindings on one label, you can show the additional bindings via the placeholders `{1}`, `{2}`, `{3}`, etc.
 
 ### Formatting numeric data
-Almost all data bindings that deal with numbers return actual numeric data, which is not yet converted to a string for you. Therefore, simply applying the default {0} formatting will often show numbers in far too many decimals (e.g. a speed of "241.483981387517 km/h"). To control the number of decimals or apply any other numeric formatting, you can supply a formatting string for each placeholder, in the syntax of:
+Almost all data bindings that deal with numbers return actual numeric data, which is not yet converted to a string for you. Therefore, simply applying the default `{0}` formatting will often show numbers in far too many decimals (e.g. a speed of "241.483981387517 km/h"). To control the number of decimals or apply any other numeric formatting, you can supply a formatting string for each placeholder, in the syntax of:
 * Text: `{0:format}`
 
 There is a wide variety of possible formatting strings. For example, to control the number of decimals, you can use the "N" or "0" format. The "N" format can be followed by the desired number of decimals such as "N3". The "0" specifier will be replaced with the corresponding digit if it is present, or 0 otherwise. Some examples are listed below for a raw data value of 241.483981387517 (the formatting string and result given in blue):

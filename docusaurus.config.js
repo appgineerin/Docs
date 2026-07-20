@@ -2,8 +2,9 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 const content = require('./content/docusaurus.config');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -12,7 +13,12 @@ const config = {
   url: 'https://docs.appgineering.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'img/favicon.png',
   trailingSlash: true,
   organizationName: 'appgineerin', // Usually your GitHub org/user name.
@@ -155,6 +161,19 @@ const config = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
+    // Nearly every page is a UI screenshot scaled well below its native size
+    // (the widget shots are 1000px+ wide rendered into a ~750px column), so the
+    // detail being documented is often unreadable in place. Click-to-zoom is
+    // the cheapest fix: it needs no change to the 125 markdown image refs.
+    // Backdrops are the brand's page fills, not the plugin's white/grey, so the
+    // overlay reads as part of the site in both colour modes.
+    zoom: {
+      selector: '.markdown img',
+      background: {
+        light: 'rgb(242, 243, 246)',
+        dark: 'rgb(12, 13, 20)',
+      },
+    },
   },
   presets: [
     [
@@ -180,6 +199,7 @@ const config = {
   ],
   plugins: [
     ...content.plugins,
+    require.resolve('docusaurus-plugin-image-zoom'),
     [
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
