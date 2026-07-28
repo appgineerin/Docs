@@ -78,77 +78,9 @@ const config = {
         },
       ],
     },
-    footer: {
-      links: [
-        {
-          title: 'About',
-          items: [
-            {
-              label: 'Appgineering GbR',
-              to: 'https://appgineering.com',
-            },
-            {
-              label: 'Appgineering Shop',
-              to: 'https://appgineering.shop',
-            },
-            {
-              label: 'ATVO Themes 2023 Pro',
-              to: 'https://appgineering.shop/en/atvo-theme-2023',
-            },
-          ],
-        },
-        {
-          title: 'Socials',
-          items: [
-            {
-              label: 'Facebook',
-              to: 'https://www.facebook.com/appgineeringcom',
-            },
-            {
-              label: 'Twitter',
-              to: 'https://twitter.com/appgineerin',
-            },
-            {
-              label: 'Instagram',
-              to: 'https://www.instagram.com/appgineering',
-            },
-            {
-              label: 'YouTube',
-              to: 'https://www.youtube.com/channel/UCHeQCMC6yE5ceB1TzyGHj4Q',
-            },
-            {
-              label: 'Discord',
-              to: 'https://discord.appgineering.com',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Imprint',
-              to: 'https://appgineering.com/impressum',
-            },
-            {
-              label: 'Privacy Policy',
-              to: 'https://appgineering.com/privacy-policy',
-            },
-            {
-              label: 'GitHub',
-              to: 'https://github.com/appgineerin',
-            },
-          ],
-        },
-      ],
-      // Same reasoning as the navbar: the footer band is near-black in both
-      // colour modes, so the white cut is the only correct one.
-      logo: {
-        alt: 'Appgineering',
-        src: 'img/logos/logo_white.png',
-        href: 'https://appgineering.com',
-      },
-      copyright: `© ${new Date().getFullYear()} Appgineering GbR.`,
-    },
+    // No `footer` key: the footer is a shadow of the theme component in
+    // src/theme/Footer/index.tsx, ported from the marketing site, and it owns
+    // its own content. Anything configured here would be silently ignored.
     socials: [
       {
         url: 'https://twitter.com/appgineering',
