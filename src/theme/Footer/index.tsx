@@ -15,15 +15,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    Three deliberate divergences from the source:
    - next-intl is gone. The docs site is English-only, so the strings are the
      messages/en.json → Footer block inlined, and every site-relative href is
-     absolutised against SITE (the main site routes with localePrefix: "always",
-     so the /en prefix is part of the URL, not optional).
+     absolutised against SITE. SITE is deliberately locale-FREE: the main site
+     resolves an unprefixed path to the visitor's own locale (NEXT_LOCALE
+     cookie, then Accept-Language) before serving it, so pinning /en here would
+     force English on a German reader for every link in this footer.
    - The "Cookie settings" button is dropped: it opens the main site's consent
      manager, which does not exist here, and a dead control is worse than a
      missing one. The Cookie Notice link remains.
    - The copyright year is computed rather than hardcoded.
    -------------------------------------------------------------------------- */
 
-const SITE = 'https://appgineering.com/en';
+const SITE = 'https://appgineering.com';
 
 const columns = [
   {
@@ -78,11 +80,14 @@ const columns = [
   },
 ];
 
+// Every slug here is a route on the main site, reached unprefixed so the
+// locale is resolved per visitor. They are the main site's URLs, not ours:
+// renaming one there breaks the link here, silently and on another domain.
 const legalLinks = [
-  {label: 'Imprint', slug: 'impressum'},
-  {label: 'Terms', slug: 'agb'},
-  {label: 'Withdrawal', slug: 'widerruf'},
-  {label: 'Privacy', slug: 'datenschutz'},
+  {label: 'Legal Notice', slug: 'legal-notice'},
+  {label: 'Terms', slug: 'terms-and-conditions'},
+  {label: 'Withdrawal', slug: 'right-of-withdrawal'},
+  {label: 'Privacy Policy', slug: 'privacy-policy'},
   {label: 'Cookie Notice', slug: 'cookies'},
 ];
 
