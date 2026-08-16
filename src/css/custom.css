@@ -110,12 +110,10 @@
   --ifm-navbar-search-input-placeholder-color: var(--surface-dark-text-muted);
   --ifm-navbar-shadow: none;
 
-  /* Footer: permanently near-black, same reasoning as the navbar. */
-  --ifm-footer-background-color: var(--ink-900);
-  --ifm-footer-color: var(--surface-dark-text-muted);
-  --ifm-footer-link-color: var(--surface-dark-text-muted);
-  --ifm-footer-link-hover-color: var(--apg-blue-on-dark);
-  --ifm-footer-title-color: var(--surface-dark-text);
+  /* No --ifm-footer-* here: the footer is a hand-written shadow of the theme
+     component (src/theme/Footer/index.tsx, ported from the main site) that
+     carries none of Infima's .footer classes, so none of those variables are
+     ever read. It paints itself via .ft-on-dark. See section 8. */
 
   /* Sidebar menu. Both background vars are transparent on purpose: the hover
      and current-page markers are painted by a skewed ::before in section 6, and
@@ -241,7 +239,7 @@ body {
   outline-offset: 2px;
 }
 .navbar :focus-visible,
-.footer :focus-visible {
+.apg-footer :focus-visible {
   outline-color: var(--apg-blue-on-dark);
 }
 
@@ -351,13 +349,38 @@ h1 {
   display: block;
   padding-top: var(--ifm-navbar-item-padding-vertical);
 }
+/* ...and the same split is why the underline was 24px wider than its label: on
+   a plain entry Infima's horizontal item padding sits on the very <a> that
+   carries the border, so the rule ran the full item box. The main site draws it
+   on a bare <a> whose spacing comes from the row's gap, ending the rule with
+   the text. Trade that padding for equal margin — identical spacing, but the
+   border box is now the text box. Dropdown toggles need no counterpart: their
+   padding is on the wrapping .navbar__item div, so their rule already stops at
+   the label (plus its caret, as it does at the source). */
+.navbar__items .navbar__item.navbar__link {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: var(--ifm-navbar-item-padding-horizontal);
+  margin-right: var(--ifm-navbar-item-padding-horizontal);
+}
 
 /* Infima adds a caret via ::after on dropdown toggles; the border-bottom above
-   would otherwise run under it at a different baseline than the label. */
+   would otherwise run under it at a different baseline than the label.
+
+   Infima also baseline-aligns that triangle (top: 2px, then translateY(-50%) of
+   its own 0.3em height), which lands its centre within a fraction of a pixel of
+   the text baseline. That is right for mixed-case text and wrong here: the label
+   is all-caps and has no descender, so its optical centre is half a cap height
+   — ~0.36em in Archivo — ABOVE the baseline, and the caret read ~2px low.
+   Drop the transform and set the offset directly, in em so it holds at any zoom
+   level: a bottom edge at baseline − 0.2em puts the 0.3em-tall triangle's centre
+   at baseline − 0.35em. */
 .navbar .dropdown > .navbar__link::after {
   border-width: 0.3em 0.3em 0;
   margin-left: 0.4em;
   opacity: 0.7;
+  top: -0.2em;
+  transform: none;
 }
 
 /* The dropdown panel is a light popover on a dark bar in light mode, the same
@@ -689,43 +712,39 @@ table thead tr th {
 
 /* -----------------------------------------------------------------------------
    8. Footer
-   Near-black in both modes. Column titles take the tracked-uppercase label cut
-   with the brand's blue accent dash.
+   The footer is not Infima's — it is a shadow of the theme component in
+   src/theme/Footer/index.tsx, ported from the main site so both sites carry the
+   same one. Everything except the band and its reflow is an inline style in that
+   file, matching the source component; only what CSS can express and JSX cannot
+   (a border, media queries) lives here.
    -------------------------------------------------------------------------- */
-.footer {
+.apg-footer {
   border-top: 1px solid var(--surface-dark-hairline);
-  padding-top: 48px;
-  padding-bottom: 48px;
 }
-.footer__title {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+
+/* Footer reflow, ported from the main site's tokens.css. The desktop
+   "2fr + 4 columns" grid is far wider than a narrow viewport and is the single
+   biggest source of horizontal scroll. It needs TWO steps, not one: collapsing
+   only at 640px left the whole 641-900px band scrolling horizontally. The grid
+   template itself also pairs with minmax(0, 1fr) in the component, because a
+   bare 1fr track has an auto minimum and refuses to shrink below its widest
+   link. The !important beats the component's inline styles, which is also why
+   the template stays inline there rather than moving here. */
+@media (max-width: 900px) {
+  .apg-footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 32px !important;
+  }
 }
-.footer__title::before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 3px;
-  margin-right: 10px;
-  vertical-align: middle;
-  background: var(--apg-blue-on-dark);
-}
-.footer__link-item {
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.15s ease;
-}
-.footer__copyright {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--surface-dark-text-muted);
-}
-.footer__logo {
-  max-width: 180px;
+@media (max-width: 640px) {
+  .apg-footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .apg-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px !important;
+  }
 }
 
 /* -----------------------------------------------------------------------------
@@ -964,7 +983,11 @@ body .aa-DetachedContainer--modal {
     0 0 0 5px var(--ifm-color-primary);
 }
 
-.ft-band-dark {
+/* .ft-on-dark is the source's own name for this band and is what the ported
+   footer markup carries; .ft-band-dark is the name the homepage was ported
+   under. Same declaration, kept as one rule so they cannot drift. */
+.ft-band-dark,
+.ft-on-dark {
   background: var(--ink-900);
   color: var(--surface-dark-text);
 }
@@ -1031,8 +1054,36 @@ body .aa-DetachedContainer--modal {
 .ft-muted {
   color: var(--ifm-color-content-secondary);
 }
-.ft-band-dark .ft-muted {
+.ft-band-dark .ft-muted,
+.ft-on-dark .ft-muted {
   color: var(--surface-dark-text-muted);
+}
+/* Nav-style link and focus ring, ported from the main site's fullthrottle.css
+   for the footer. The bare .ft-navlink / .ft-focus colours are unreachable
+   today — the only user is the dark footer band, which takes the .ft-on-dark
+   overrides below — but are kept verbatim so the classes behave as they do at
+   the source the first time one is used on a light surface. */
+.ft-navlink {
+  color: var(--ink-600);
+  transition: color 0.15s ease;
+}
+.ft-navlink:hover,
+.ft-navlink[aria-current] {
+  color: var(--ink-900);
+}
+.ft-on-dark .ft-navlink {
+  color: var(--surface-dark-text-muted);
+}
+.ft-on-dark .ft-navlink:hover,
+.ft-on-dark .ft-navlink[aria-current] {
+  color: var(--surface-dark-text);
+}
+.ft-focus:focus-visible {
+  outline: 2px solid var(--apg-blue);
+  outline-offset: 3px;
+}
+.ft-on-dark .ft-focus:focus-visible {
+  outline-color: var(--apg-blue-on-dark);
 }
 /* .ft-chip is the near-black default and .ft-chip-blue the accent variant, as
    on the main site. They were briefly collapsed into one blue .ft-chip here,
@@ -1059,6 +1110,7 @@ body .aa-DetachedContainer--modal {
   margin-left: 0.28em;
   opacity: 0.55;
   letter-spacing: -0.06em;
+  white-space: nowrap;
 }
 .ft-accent-dash::before {
   content: "";
